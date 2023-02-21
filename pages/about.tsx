@@ -6,7 +6,7 @@ export default function Home() {
     <>
       <CustomHead />
       <Layout>
-        <p>Main</p>
+        <p>About</p>
       </Layout>
     </>
   );
