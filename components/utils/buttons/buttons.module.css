@@ -1,0 +1,63 @@
+.btn {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 12px;
+  padding-right: 24px;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 700;
+  border-radius: 20px;
+}
+
+.btn .icon {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+}
+
+.btn .icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.primary {
+  background-color: var(--red);
+  color: var(--white);
+}
+
+.primary .icon {
+  background-color: var(--white);
+}
+
+.primary .icon svg {
+  color: var(--red);
+}
+
+.secondary {
+  background-color: var(--white);
+  color: var(--red);
+}
+
+.secondary .icon {
+  background-color: var(--red);
+}
+
+.secondary .icon svg {
+  color: var(--white);
+}
+
+.third {
+  background-color: var(--white);
+  color: var(--red);
+}
+
+.third .icon {
+  background-color: var(--yellow);
+}
+
+.third .icon svg {
+  color: var(--red);
+}

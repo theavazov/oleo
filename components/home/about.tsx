@@ -1,5 +1,7 @@
 import Link from "next/link";
+import { arrowRight, play } from "../../public/icons";
 import styles from "../../styles/home.module.css";
+import { Button } from "../utils/buttons/buttons";
 
 export function MainAbout() {
   return (
@@ -16,11 +18,12 @@ export function MainAbout() {
           chiqarish uchun xom ashyo tanlashda juda ma‘suliyatli.
         </p>
         <div className={styles.about_buttons}>
-          <Link href={"/about"} className={styles.about_link}>
-            <div></div>
-            <p>Batafsil</p>
-          </Link>
-          <button className={styles.about_video}></button>
+          <Button variant="primary" path="/about" icon={arrowRight}>
+            Batafsil
+          </Button>
+          <Button variant="secondary" icon={play}>
+            Katalogni Yuklab olish
+          </Button>
         </div>
       </div>
     </article>

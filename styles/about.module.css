@@ -16,6 +16,15 @@
   line-height: 24px;
   font-weight: 500;
   color: var(--red);
+  max-width: 790px;
+}
+
+.intro_right {
+  width: 100%;
+  height: 220px;
+  background-color: black;
+  border-radius: 20px;
+  overflow: hidden;
 }
 
 /* === MIDDLE === */
@@ -95,4 +104,25 @@
 .middle_number:hover {
   color: var(--yellow);
   transition: 0.3s;
+}
+
+/* === BOTTOM GRID === */
+.about_bottom_inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 24px;
+}
+
+.about_bottom_right {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.about_bottom_right img {
+  display: inline-block;
+  width: 100%;
+  height: 700px;
+  object-fit: contain;
 }

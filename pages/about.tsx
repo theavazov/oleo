@@ -6,6 +6,9 @@ import { Location } from "../components/utils/location/location";
 import styles from "../styles/about.module.css";
 import aboutImg from "../public/media/ab_pg.jpg";
 import { facebook, instagram, telegram, twitter } from "../public/icons";
+import { MainForm } from "../components/universal/form/form";
+import chel from "../public/media/chel.png";
+import Image from "next/image";
 
 export default function Home() {
   const socialmedia = [
@@ -95,6 +98,14 @@ export default function Home() {
                   +998 00 000 00 00
                 </a>
               </nav>
+            </div>
+          </div>
+        </article>
+        <article className="mini_section">
+          <div className={`box ${styles.about_bottom_inner}`}>
+            <MainForm />
+            <div className={styles.about_bottom_right}>
+              <Image src={chel} alt="chelovek" />
             </div>
           </div>
         </article>

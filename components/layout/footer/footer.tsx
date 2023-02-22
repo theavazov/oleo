@@ -41,7 +41,12 @@ export function Footer() {
           <div className={styles.inner_left}>
             <div className={styles.left_top}>
               <Link href={"/"}>
-                <Image src={logo} alt={"logo"} className={styles.logo} />
+                <Image
+                  src={logo}
+                  alt={"logo"}
+                  className={styles.logo}
+                  quality={100}
+                />
               </Link>
               <p>
                 ООО «BARAKA FOOD» - компания-производитель масложировой
