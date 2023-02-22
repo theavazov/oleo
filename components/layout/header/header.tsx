@@ -11,28 +11,33 @@ export function Header() {
   const navigation = [
     {
       id: 1,
-      title: "Biz haqimizda",
+      title: "Asosiy",
       path: "/",
+      isActive: pathname === "/" ? true : false,
     },
     {
       id: 2,
-      title: "Mahsulotlarimiz",
-      path: "/",
+      title: "Biz haqimizda",
+      path: "/about",
+      isActive: pathname === "/about" ? true : false,
     },
     {
       id: 3,
-      title: "Yangiliklar",
-      path: "/",
+      title: "Mahsulotlarimiz",
+      path: "/products",
+      isActive: pathname.includes("/products") ? true : false,
     },
     {
       id: 4,
-      title: "Aloqa",
-      path: "/",
+      title: "Yangiliklar",
+      path: "/news",
+      isActive: pathname.includes("/news") ? true : false,
     },
     {
       id: 5,
-      title: "Nega biz",
-      path: "/",
+      title: "Hamkorlik",
+      path: "/business",
+      isActive: pathname === "/business" ? true : false,
     },
   ];
 
@@ -55,7 +60,11 @@ export function Header() {
                 <Link
                   key={nav.id}
                   href={`${nav.path}`}
-                  className={styles.nav_link}
+                  className={
+                    nav.isActive
+                      ? `${styles.nav_link} ${styles.active}`
+                      : styles.nav_link
+                  }
                 >
                   {nav.title}
                 </Link>

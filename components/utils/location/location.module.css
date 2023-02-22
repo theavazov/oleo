@@ -1,0 +1,51 @@
+.location_section {
+  background: rgba(247, 247, 247, 0.95);
+  backdrop-filter: blur(50px);
+}
+
+.location_inner {
+  padding-block: 10px;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.nazad {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding-inline: 14px;
+  height: 30px;
+  background-color: var(--white);
+  border-radius: 9px;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--red);
+}
+
+.nazad svg {
+  max-width: 14px;
+  width: 100%;
+  height: 14px;
+  transform: rotate(90deg) translateY(0px);
+  transition: 0.3s;
+}
+
+.nazad:hover svg {
+  transform: rotate(90deg) translateY(3px);
+  transition: 0.3s;
+}
+
+.location_nav {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.node {
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--red);
+  transition: 0.3s;
+}
