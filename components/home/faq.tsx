@@ -1,26 +1,22 @@
 import styles from "../../styles/home.module.css";
 import Accordion from "react-bootstrap/Accordion";
 import { chevron } from "../../public/icons";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
+import { getFAQ } from "../../server/getFAQ";
 
 export function MainFAQ() {
-  const faqs = [
-    {
-      question:
-        "Oleo saryog`larini qayerdan sotib olsam bo’ladi? Oleo saryog`larini qayerdan sotib olsam bo’ladi? Oleo saryog`larini qayerdan sotib olsam bo’ladi? Oleo saryog`larini qayerdan sotib olsam bo’ladi?",
-      answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    },
-    {
-      question: "Oleo saryog`larini qayerdan sotib olsam bo’ladi?",
-      answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    },
-    {
-      question: "Oleo saryog`larini qayerdan sotib olsam bo’ladi?",
-      answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    },
-  ];
+  const { locale } = useRouter();
+  const [faqs, setFaqs] = useState<any>([]);
+
+  useEffect(() => {
+    getFAQ(locale)
+      .then((res) => {
+        console.log(res.results);
+        setFaqs(res.results);
+      })
+      .catch((e) => console.log(e));
+  }, [locale]);
 
   return (
     <article className="section">
@@ -31,10 +27,10 @@ export function MainFAQ() {
             return (
               <Accordion.Item key={i} eventKey={`${i}`} className={styles.faq}>
                 <Accordion.Header className={styles.accordion_header}>
-                  {faq.question}
+                  {faq?.question}
                   {chevron}
                 </Accordion.Header>
-                <Accordion.Body>{faq.answer}</Accordion.Body>
+                <Accordion.Body>{faq?.answer}</Accordion.Body>
               </Accordion.Item>
             );
           })}

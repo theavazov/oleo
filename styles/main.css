@@ -36,7 +36,7 @@ textarea:focus {
 }
 
 body {
-  background-color: #f6edd1;
+  background-color: #f6edd1 !important;
 }
 
 h1,
@@ -66,7 +66,6 @@ main {
   width: 100%;
   margin: 0 auto;
   padding-inline: 16px;
-  /* border: 1px solid red; */
 }
 
 .bigbox {
@@ -75,11 +74,6 @@ main {
 
 .section {
   padding-top: 120px;
-}
-
-article,
-section {
-  display: none !important;
 }
 
 .mini_section {
@@ -228,6 +222,12 @@ section {
   line-height: 22px !important;
 }
 
+@media (max-width: 1800px) {
+  .grid_container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 @media (max-width: 880px) {
   .desktop {
     display: none !important;
@@ -237,5 +237,22 @@ section {
   }
   main {
     padding-top: 80px;
+  }
+  .grid_container {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 580px) {
+  .section_title {
+    font-size: 20px;
+    line-height: 24px;
+  }
+}
+
+@media (max-width: 380px) {
+  .grid_container {
+    grid-template-columns: 1fr;
   }
 }

@@ -10,11 +10,16 @@ export function NewsCard({ news }: Props) {
   return (
     <Link href={`/news/${news.slug}`} className={styles.card}>
       <div className={styles.card_img}>
-        <CustomImage source={news.image} alt={news.title} />
+        <CustomImage
+          source={news.image}
+          alt={news.title}
+          width={430}
+          height={270}
+        />
       </div>
       <div className={styles.card_content}>
         <p className={styles.card_title}>{news.title}</p>
-        <p className={styles.card_btn}>Yangilikni batafsil o`qish</p>
+        <p className={styles.card_btn}>Batafsil o`qish</p>
       </div>
     </Link>
   );

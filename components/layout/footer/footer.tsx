@@ -34,13 +34,11 @@ export function Footer() {
   return (
     <>
       <footer
-        className={styles.footer}
-        style={{
-          marginTop:
-            pathname === "/" || pathname.includes("/products")
-              ? "0px"
-              : "120px",
-        }}
+        className={
+          pathname === "/" || pathname.includes("/products")
+            ? styles.footer
+            : `${styles.footer} ${styles.footer_with_margin}`
+        }
       >
         <div className={`box ${styles.footer_inner}`}>
           <div className={styles.inner_left}>

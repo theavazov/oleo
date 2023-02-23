@@ -6,6 +6,7 @@ import { Location } from "../../components/utils/location/location";
 import { download } from "../../public/icons";
 import styles from "../../styles/product.module.css";
 import saryog from "../../public/media/saryo.png";
+import { url } from "../_app";
 
 export const products = [
   {
@@ -37,7 +38,11 @@ export const products = [
 export default function ProductsPage() {
   return (
     <>
-      <CustomHead />
+      <CustomHead
+        title={"Oleo | Mahsulotlar"}
+        desc={"Oleoning barcha mahsulotlari"}
+        canonical={`${url}/products}`}
+      />
       <Layout>
         <Location location={"Mahsulotlarimiz"} backPath={"/"} />
         <section className={styles.big_section}>

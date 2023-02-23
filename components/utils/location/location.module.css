@@ -57,3 +57,15 @@
 .node:hover {
   color: var(--red);
 }
+
+@media (max-width: 880px) {
+  .location_nav {
+    gap: 8px;
+  }
+}
+
+@media (max-width: 580px) {
+  .location_inner {
+    display: none;
+  }
+}

@@ -6,11 +6,16 @@ import { Location } from "../components/utils/location/location";
 import styles from "../styles/business.module.css";
 import introImg from "../public/media/intro.png";
 import Image from "next/image";
+import { url } from "./_app";
 
 export default function Home() {
   return (
     <>
-      <CustomHead />
+      <CustomHead
+        title={"Oleo | Hamkorlik"}
+        desc={"Biz bilan hamkorlik"}
+        canonical={`${url}/about`}
+      />
       <Layout>
         <Location location={"Hamkorlikka chaqiramiz"} backPath={"/"} />
         <article className={styles.intro_section}>

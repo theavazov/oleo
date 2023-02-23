@@ -53,133 +53,122 @@ export function Header({ isLangs, setIsLangs, isMenu, setIsMenu }: Props) {
   ];
 
   return (
-    <>
-      <header
-        className={
-          pathname === "/"
-            ? `${styles.header} ${styles.main}`
-            : `${styles.header} ${styles.extra}`
-        }
-        style={{ backgroundColor: isMenu ? "var(--red)" : "" }}
-      >
-        <div className={`box ${styles.header_inner}`}>
-          <button
-            className={styles.hamburger}
-            onClick={() => setIsMenu(!isMenu)}
-          >
-            <span className={isMenu ? styles.rotate45 : ""}></span>
-            <span className={isMenu ? styles.hide : ""}></span>
-            <span className={isMenu ? styles.rotate_45 : ""}></span>
-          </button>
-          <a href={`tel: +998 00 000 00 00`} className={styles.mobile_number}>
-            {phone}
-          </a>
-          <div className={styles.main_nav}>
-            <Link href={"/"}>
-              <Image
-                src={logo}
-                alt="logo"
-                className={`desktop ${styles.logo}`}
-              />
-              <Image
-                src={mobileLogo}
-                alt="logo"
-                className={`mobile ${styles.mobile_logo}`}
-              />
-            </Link>
-            <nav className={styles.header_nav}>
-              {navigation.map((nav) => {
-                return (
-                  <Link
-                    key={nav.id}
-                    href={`${nav.path}`}
-                    className={
-                      nav.isActive
-                        ? `${styles.nav_link} ${styles.active}`
-                        : styles.nav_link
-                    }
-                  >
-                    {nav.title}
-                  </Link>
-                );
-              })}
-            </nav>
-          </div>
-          <div className={styles.extra_nav}>
-            <button
-              className={
-                isLangs
-                  ? `${styles.lang_changer} ${styles.lang_changer_inherit}`
-                  : styles.lang_changer
-              }
-              onClick={() => setIsLangs(!isLangs)}
-            >
-              {locale === "uz"
-                ? "O'zbekcha"
-                : locale === "ru"
-                ? "Русский"
-                : locale === "en"
-                ? " English"
-                : ""}
-              {chevron}
-              <div
-                className={
-                  isLangs
-                    ? `${styles.dropdown} ${styles.show}`
-                    : styles.dropdown
-                }
-              >
-                {locales?.map((locale) => {
-                  if (locale === "uz") {
-                    return (
-                      <Link
-                        key={locale}
-                        href={asPath}
-                        locale={locale}
-                        className={styles.dropdown_link}
-                      >
-                        <Image src={uz} alt={"lang"} />
-                        O&apos;zbekcha
-                      </Link>
-                    );
-                  } else if (locale === "ru") {
-                    return (
-                      <Link
-                        key={locale}
-                        href={asPath}
-                        locale={locale}
-                        className={styles.dropdown_link}
-                      >
-                        <Image src={ru} alt={"lang"} />
-                        Русский
-                      </Link>
-                    );
-                  } else if (locale === "en") {
-                    return (
-                      <Link
-                        key={locale}
-                        href={asPath}
-                        locale={locale}
-                        className={styles.dropdown_link}
-                      >
-                        <Image src={gb} alt={"lang"} />
-                        English
-                      </Link>
-                    );
+    <header
+      className={
+        pathname === "/"
+          ? `${styles.header} ${styles.main}`
+          : `${styles.header} ${styles.extra}`
+      }
+      style={{ backgroundColor: isMenu ? "var(--red)" : "" }}
+    >
+      <div className={`box ${styles.header_inner}`}>
+        <button className={styles.hamburger} onClick={() => setIsMenu(!isMenu)}>
+          <span className={isMenu ? styles.rotate45 : ""}></span>
+          <span className={isMenu ? styles.hide : ""}></span>
+          <span className={isMenu ? styles.rotate_45 : ""}></span>
+        </button>
+        <a href={`tel: +998 00 000 00 00`} className={styles.mobile_number}>
+          {phone}
+        </a>
+        <div className={styles.main_nav}>
+          <Link href={"/"}>
+            <Image src={logo} alt="logo" className={`desktop ${styles.logo}`} />
+            <Image
+              src={mobileLogo}
+              alt="logo"
+              className={`mobile ${styles.mobile_logo}`}
+            />
+          </Link>
+          <nav className={styles.header_nav}>
+            {navigation.map((nav) => {
+              return (
+                <Link
+                  key={nav.id}
+                  href={`${nav.path}`}
+                  className={
+                    nav.isActive
+                      ? `${styles.nav_link} ${styles.active}`
+                      : styles.nav_link
                   }
-                })}
-              </div>
-            </button>
-            <a href={`tel: +998 00 000 00 00`} className={styles.number}>
-              +998 00 000 00 00
-            </a>
-          </div>
+                >
+                  {nav.title}
+                </Link>
+              );
+            })}
+          </nav>
         </div>
-      </header>
+        <div className={styles.extra_nav}>
+          <button
+            className={
+              isLangs
+                ? `${styles.lang_changer} ${styles.lang_changer_inherit}`
+                : styles.lang_changer
+            }
+            onClick={() => setIsLangs(!isLangs)}
+          >
+            {locale === "uz"
+              ? "O'zbekcha"
+              : locale === "ru"
+              ? "Русский"
+              : locale === "en"
+              ? " English"
+              : ""}
+            {chevron}
+            <div
+              className={
+                isLangs ? `${styles.dropdown} ${styles.show}` : styles.dropdown
+              }
+            >
+              {locales?.map((locale) => {
+                if (locale === "uz") {
+                  return (
+                    <Link
+                      key={locale}
+                      href={asPath}
+                      locale={locale}
+                      className={styles.dropdown_link}
+                    >
+                      <Image src={uz} alt={"lang"} />
+                      O&apos;zbekcha
+                    </Link>
+                  );
+                } else if (locale === "ru") {
+                  return (
+                    <Link
+                      key={locale}
+                      href={asPath}
+                      locale={locale}
+                      className={styles.dropdown_link}
+                    >
+                      <Image src={ru} alt={"lang"} />
+                      Русский
+                    </Link>
+                  );
+                } else if (locale === "en") {
+                  return (
+                    <Link
+                      key={locale}
+                      href={asPath}
+                      locale={locale}
+                      className={styles.dropdown_link}
+                    >
+                      <Image src={gb} alt={"lang"} />
+                      English
+                    </Link>
+                  );
+                }
+              })}
+            </div>
+          </button>
+          <a href={`tel: +998 00 000 00 00`} className={styles.number}>
+            +998 00 000 00 00
+          </a>
+        </div>
+      </div>
       {isMenu ? (
         <MobileMenu navigation={navigation} setIsMenu={setIsMenu} />
       ) : null}
-    </>
+    </header>
   );
 }
 

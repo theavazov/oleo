@@ -249,11 +249,14 @@
 }
 
 .menu {
+  position: absolute;
+  top: 80px;
+  left: 0;
+  width: 100%;
   animation: fadeIn 0.3s ease;
   background-color: var(--red);
   color: var(--white);
   transition: 0.5s;
-  padding-top: 80px;
 }
 
 .menu_inner {

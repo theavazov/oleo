@@ -9,6 +9,7 @@ import { facebook, instagram, telegram, twitter } from "../public/icons";
 import { MainForm } from "../components/universal/form/form";
 import chel from "../public/media/chel.png";
 import Image from "next/image";
+import { url } from "./_app";
 
 export default function Home() {
   const socialmedia = [
@@ -36,7 +37,13 @@ export default function Home() {
 
   return (
     <>
-      <CustomHead />
+      <CustomHead
+        title={"Oleo | Biz haqimizda"}
+        desc={
+          "“BARAKA FOOD” MChJ 2012-yilda tashkil etilgan bo‘lib, OLEO savdo belgisi ostida sariyog‘, sabzavot-qaymoq yormalari va margarinlar ishlab chiqarish bilan shug‘ullanadi. Mahsulotlarimizning keng assortimenti funksionallik, lazzat va teksturani yuqori ozuqaviy qiymat bilan birlashtiradi."
+        }
+        canonical={`${url}/about`}
+      />
       <Layout>
         <Location location={"Biz haqimizda"} backPath={"/"} />
         <article className="mini_section">

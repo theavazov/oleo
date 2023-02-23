@@ -5,11 +5,12 @@ import { MainNewsSection } from "../components/home/news";
 import { MainProducts } from "../components/home/products";
 import { CustomHead } from "../components/utils/head";
 import { Layout } from "../components/utils/layout";
+import { url } from "./_app";
 
 export default function Home() {
   return (
     <>
-      <CustomHead />
+      <CustomHead title={"Oleo"} desc={"Oleo home page"} canonical={url} />
       <Layout>
         <MainProducts />
         <MainAbout />
