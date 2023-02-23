@@ -32,6 +32,10 @@
   transition: 0.3s;
 }
 
+.nazad:hover {
+  color: var(--red);
+}
+
 .nazad:hover svg {
   transform: rotate(90deg) translateY(3px);
   transition: 0.3s;
@@ -48,4 +52,8 @@
   line-height: 20px;
   color: var(--red);
   transition: 0.3s;
+}
+
+.node:hover {
+  color: var(--red);
 }

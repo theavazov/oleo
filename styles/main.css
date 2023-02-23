@@ -15,7 +15,7 @@
   box-sizing: border-box;
   font-family: "Mulish", sans-serif;
   scroll-behavior: "smooth" !important;
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 button,
@@ -37,6 +37,16 @@ textarea:focus {
 
 body {
   background-color: #f6edd1;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0 !important;
 }
 
 .wrapper {
@@ -67,6 +77,11 @@ main {
   padding-top: 120px;
 }
 
+article,
+section {
+  display: none !important;
+}
+
 .mini_section {
   padding-top: 80px;
 }
@@ -75,6 +90,12 @@ main {
   display: flex;
   flex-direction: column;
   gap: 24px;
+}
+
+.grid_container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
 }
 
 .section_title /* h3 */ {
@@ -129,4 +150,92 @@ main {
 .my__arrow:last-child svg {
   transform: rotate(-90deg);
   margin-left: 2px;
+}
+
+.desktop {
+  display: block !important;
+}
+
+.mobile {
+  display: none !important;
+}
+
+.popup {
+  pointer-events: none;
+  opacity: 0;
+  transition: 0.5s;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  position: fixed;
+  inset: 0;
+}
+
+.popup.show {
+  opacity: 1;
+  transition: 0.5s;
+  pointer-events: all;
+}
+
+/* === BOOTSTRAP === */
+.accordion-item:first-of-type .accordion-button,
+.accordion-item:last-of-type .accordion-button,
+.accordion-item {
+  border: none !important;
+  border-radius: 0px !important;
+}
+
+.accordion-item {
+  border-radius: 8px !important;
+  overflow: hidden !important;
+  z-index: 0 !important;
+}
+
+.accordion-button:focus,
+.accordion-button:not(.collapsed) {
+  border-color: unset !important;
+  box-shadow: none !important;
+}
+
+.accordion-button:not(.collapsed),
+.accordion-button {
+  background-color: #ee464f !important;
+  color: var(--cl-white) !important;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.accordion-button.collapsed svg {
+  transform: rotate(-90deg);
+  transition: 0.3s;
+}
+
+.accordion-button::after {
+  display: none !important;
+}
+
+.accordion-body {
+  color: rgba(255, 255, 255, 0.85) !important;
+  font-size: 16px !important;
+  line-height: 24px !important;
+  padding-inline: 24px !important;
+  padding-bottom: 18px !important;
+}
+
+.accordion-button {
+  font-size: 18px !important;
+  line-height: 22px !important;
+}
+
+@media (max-width: 880px) {
+  .desktop {
+    display: none !important;
+  }
+  .mobile {
+    display: block !important;
+  }
+  main {
+    padding-top: 80px;
+  }
 }

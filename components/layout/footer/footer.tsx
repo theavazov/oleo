@@ -35,7 +35,12 @@ export function Footer() {
     <>
       <footer
         className={styles.footer}
-        style={{ marginTop: pathname === "/" ? "0px" : "120px" }}
+        style={{
+          marginTop:
+            pathname === "/" || pathname.includes("/products")
+              ? "0px"
+              : "120px",
+        }}
       >
         <div className={`box ${styles.footer_inner}`}>
           <div className={styles.inner_left}>
@@ -56,19 +61,21 @@ export function Footer() {
             <div className={styles.left_div}>
               <p>Bizning ijtimoiy tarmoqlarimiz:</p>
               <nav className={styles.footer_nav}>
-                {socialmedia.map((sm) => {
-                  return (
-                    <a
-                      href={sm.path}
-                      key={sm.id}
-                      className={styles.sm}
-                      target={"_blank"}
-                      rel="noreferrer"
-                    >
-                      {sm.icon}
-                    </a>
-                  );
-                })}
+                <div>
+                  {socialmedia.map((sm) => {
+                    return (
+                      <a
+                        href={sm.path}
+                        key={sm.id}
+                        className={styles.sm}
+                        target={"_blank"}
+                        rel="noreferrer"
+                      >
+                        {sm.icon}
+                      </a>
+                    );
+                  })}
+                </div>
                 <a href={`tel: +998 00 000 00 00`} className={styles.ft_number}>
                   +998 00 000 00 00
                 </a>
@@ -96,6 +103,20 @@ export function Footer() {
                 <a href={`#`}>Toshkent shahar Uchtepa tumani 12-uy</a>
               </nav>
             </div>
+          </div>
+          <div className={styles.left_top_mobile}>
+            <Link href={"/"}>
+              <Image
+                src={logo}
+                alt={"logo"}
+                className={styles.logo}
+                quality={100}
+              />
+            </Link>
+            <p>
+              ООО «BARAKA FOOD» - компания-производитель масложировой продукции,
+              одна из крупнейших в Узбекистане
+            </p>
           </div>
         </div>
       </footer>

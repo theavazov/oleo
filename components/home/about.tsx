@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { arrowRight, play } from "../../public/icons";
+import { arrowRight, download, play } from "../../public/icons";
 import styles from "../../styles/home.module.css";
 import { Button } from "../utils/buttons/buttons";
 
@@ -21,7 +21,7 @@ export function MainAbout() {
           <Button variant="primary" path="/about" icon={arrowRight}>
             Batafsil
           </Button>
-          <Button variant="secondary" icon={play}>
+          <Button variant="secondary" icon={download} path={"#"}>
             Katalogni Yuklab olish
           </Button>
         </div>
