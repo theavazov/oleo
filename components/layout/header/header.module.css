@@ -10,6 +10,7 @@
 .header.main {
   background-color: var(--yellow);
   color: var(--red);
+  border-bottom: 1px solid var(--red);
 }
 
 .header.main a:hover {

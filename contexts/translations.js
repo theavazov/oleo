@@ -36,7 +36,7 @@ export default function TranslationsContextProvider({ children }) {
       .catch((e) => console.log(e));
   }, [locale]);
 
-  const value = { isLoading, setIsLoading, t, setT };
+  const value = { isLoading, setIsLoading, t };
 
   return (
     <TranslationsContext.Provider value={value}>

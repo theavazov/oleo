@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { useContext } from "react";
+import { TranslationsContext } from "../../../contexts/translations";
 import { chevron } from "../../../public/icons";
 import styles from "./location.module.css";
 
@@ -12,6 +14,8 @@ type Props = {
 };
 
 export function Location({ location, backPath, parent }: Props) {
+  const { t } = useContext(TranslationsContext);
+
   return (
     <article className={styles.location_section}>
       <div className={`box ${styles.location_inner}`}>

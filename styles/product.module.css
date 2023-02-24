@@ -50,6 +50,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 24px;
+  padding-inline: 0px;
 }
 
 .another_products_container_buttons {
@@ -125,5 +126,11 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 8px;
+  }
+}
+
+@media (max-width: 380px) {
+  .another_products_container_buttons_container {
+    grid-template-columns: 1fr;
   }
 }

@@ -34,7 +34,7 @@ export default function NewsInnerPage() {
         .then((res) => {
           setSingleOne(res);
         })
-        .catch(() => router.push("/404"));
+        .catch(() => router.push("/"));
     }
   }, [router]);
 

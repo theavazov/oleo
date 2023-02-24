@@ -172,6 +172,27 @@ main {
   pointer-events: all;
 }
 
+/* === SKELETON === */
+@keyframes shine {
+  to {
+    background-position: right -40px top 0;
+  }
+}
+
+.skeleton {
+  background-image: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0.5),
+    rgba(255, 255, 255, 0)
+  );
+  background-size: 40px 100%;
+  background-repeat: no-repeat;
+  background-position: left -40px top;
+  animation: shine 2s ease infinite;
+  background-color: #f7f6f7;
+}
+
 /* === BOOTSTRAP === */
 .accordion-item:first-of-type .accordion-button,
 .accordion-item:last-of-type .accordion-button,
@@ -258,6 +279,11 @@ main {
   }
   .section_inner {
     gap: 16px;
+  }
+  .accordion-body {
+    font-size: 14px !important;
+    line-height: 20px !important;
+    padding-inline: 20px !important;
   }
 }
 

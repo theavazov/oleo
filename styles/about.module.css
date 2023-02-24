@@ -25,6 +25,16 @@
   background-color: black;
   border-radius: 20px;
   overflow: hidden;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.intro_right img {
+  display: inline-block;
+  width: 120px;
+  height: 85px;
+  object-fit: contain;
 }
 
 /* === MIDDLE === */

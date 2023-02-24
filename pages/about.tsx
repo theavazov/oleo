@@ -14,10 +14,11 @@ import { WhyUsSection } from "../components/universal/whyus/whyus";
 import { useContext } from "react";
 import { ModalContext } from "../contexts/modal";
 import { SiteInfoContext } from "../contexts/siteinfo";
+import yt from "../public/media/yt.png";
 
 export default function Home() {
   const { siteInfo, numbers } = useContext(SiteInfoContext);
-  const { variant, setIsModal } = useContext(ModalContext);
+  const { setVariant, setIsModal, setVideo } = useContext(ModalContext);
 
   const socialmedia = [
     {
@@ -70,9 +71,13 @@ export default function Home() {
             <div
               className={styles.intro_right}
               onClick={() => {
+                setVariant("youtube");
+                setVideo(siteInfo?.youtube);
                 setIsModal(true);
               }}
-            ></div>
+            >
+              <Image src={yt} alt="button" />
+            </div>
           </div>
         </article>
         <Advantages className="mini_section" />
