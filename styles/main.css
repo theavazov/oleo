@@ -108,11 +108,13 @@ main {
   object-fit: cover;
 }
 
-.news .splide__arrow {
-  display: none !important;
+.swiper_buttons {
+  display: flex;
+  align-items: center;
+  gap: 40px;
 }
 
-.my__arrow {
+.swiper_btn {
   width: 48px;
   height: 48px;
   border: 2px solid var(--red);
@@ -124,24 +126,24 @@ main {
   transition: 0.3s;
 }
 
-.my__arrow:hover {
+.swiper_btn:hover {
   background-color: var(--red);
   color: var(--white);
   transition: 0.3s;
 }
 
-.my__arrow svg {
+.swiper_btn svg {
   width: 16px;
   height: 16px;
   stroke-width: 3.25px;
 }
 
-.my__arrow:first-child svg {
+.swiper_btn:first-child svg {
   transform: rotate(90deg);
   margin-right: 2px;
 }
 
-.my__arrow:last-child svg {
+.swiper_btn:last-child svg {
   transform: rotate(-90deg);
   margin-left: 2px;
 }
@@ -235,7 +237,8 @@ main {
   .mobile {
     display: block !important;
   }
-  main {
+  main,
+  .section {
     padding-top: 80px;
   }
   .grid_container {
@@ -245,9 +248,16 @@ main {
 }
 
 @media (max-width: 580px) {
+  .section,
+  .mini_section {
+    padding-top: 48px;
+  }
   .section_title {
     font-size: 20px;
     line-height: 24px;
+  }
+  .section_inner {
+    gap: 16px;
   }
 }
 

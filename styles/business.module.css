@@ -37,3 +37,55 @@
   max-width: 455px;
   color: var(--red);
 }
+
+@media (max-width: 1200px) {
+  .intro_title {
+    font-size: 52px;
+    line-height: 60px;
+  }
+  .intro_desc {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .intro_img {
+    height: 380px;
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .intro_img {
+    height: 320px;
+  }
+}
+
+@media (max-width: 880px) {
+  .intro_title {
+    font-size: 48px;
+    line-height: 52px;
+  }
+  .intro_desc {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .intro_img {
+    display: none;
+  }
+}
+
+@media (max-width: 580px) {
+  .intro_content {
+    gap: 24px;
+  }
+}
+
+@media (max-width: 380px) {
+  .intro_title {
+    font-size: 36px;
+    line-height: 40px;
+  }
+  .intro_desc {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}

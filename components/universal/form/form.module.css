@@ -66,3 +66,62 @@
 .bottom_form textarea::placeholder {
   color: var(--red);
 }
+
+@media (max-width: 1800px) {
+  .bottom_form input,
+  .bottom_form textarea,
+  .bottom_form button {
+    padding: 24px 16px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .bottom_form button {
+    font-size: 18px;
+    line-height: 24px;
+  }
+  .bottom_form_div {
+    padding: 32px 24px;
+  }
+}
+
+@media (max-width: 880px) {
+  .bottom_form_div {
+    padding: 24px 16px;
+    border-radius: 16px;
+  }
+  .bottom_form input,
+  .bottom_form textarea,
+  .bottom_form button {
+    border-radius: 10px;
+  }
+  .bottom_form_top_texts p {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}
+
+@media (max-width: 580px) {
+  .bottom_form_top {
+    gap: 18px;
+  }
+  .bottom_form_top_texts {
+    gap: 4px;
+  }
+  .bottom_form_logo {
+    max-width: 64px;
+    height: 50px;
+  }
+  .bottom_form input,
+  .bottom_form textarea,
+  .bottom_form button {
+    padding: 16px 14px;
+  }
+  .bottom_form button {
+    font-size: 16px;
+    line-height: 20px;
+  }
+  .bottom_form {
+    gap: 12px;
+  }
+}

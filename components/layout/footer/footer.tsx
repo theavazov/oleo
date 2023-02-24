@@ -3,30 +3,28 @@ import styles from "./footer.module.css";
 import logo from "../../../public/media/logo.png";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import { facebook, instagram, telegram, twitter } from "../../../public/icons";
+import { facebook, instagram, telegram } from "../../../public/icons";
+import { useContext } from "react";
+import { SiteInfoContext } from "../../../contexts/siteinfo";
 
 export function Footer() {
   const { pathname } = useRouter();
+  const { siteInfo, numbers } = useContext(SiteInfoContext);
 
   const socialmedia = [
     {
       id: 1,
-      path: "#",
+      path: siteInfo.facebook,
       icon: facebook,
     },
     {
       id: 2,
-      path: "#",
-      icon: twitter,
-    },
-    {
-      id: 3,
-      path: "#",
+      path: siteInfo.telegram,
       icon: telegram,
     },
     {
-      id: 4,
-      path: "#",
+      id: 3,
+      path: siteInfo.instagram,
       icon: instagram,
     },
   ];
@@ -74,8 +72,8 @@ export function Footer() {
                     );
                   })}
                 </div>
-                <a href={`tel: +998 00 000 00 00`} className={styles.ft_number}>
-                  +998 00 000 00 00
+                <a href={`tel: ${numbers[0]}`} className={styles.ft_number}>
+                  {numbers[0]}
                 </a>
               </nav>
             </div>
@@ -94,11 +92,15 @@ export function Footer() {
             <div className={styles.inner_nav_container}>
               <p>Aloqa</p>
               <nav className={styles.inner_nav}>
-                <a href={`tel: +998 00 000 00 00`}>+998 00 000 00 00</a>
-                <a href={`tel: +998 00 000 00 00`}>+998 00 000 00 00</a>
-                <a href={`mailto: test@gmail.com`}>test@gmail.com</a>
-                <a href={`mailto: test@gmail.com`}>test@gmail.com</a>
-                <a href={`#`}>Toshkent shahar Uchtepa tumani 12-uy</a>
+                {numbers.map((num: string) => {
+                  return (
+                    <a key={num} href={`tel: ${num}`}>
+                      {num}
+                    </a>
+                  );
+                })}
+                <a href={`mailto: ${siteInfo.email}`}>{siteInfo.email}</a>
+                <p>{siteInfo.adres}</p>
               </nav>
             </div>
           </div>

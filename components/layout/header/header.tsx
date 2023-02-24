@@ -8,6 +8,8 @@ import mobileLogo from "../../../public/media/mobile_logo.png";
 import uz from "../../../public/media/uzb.png";
 import ru from "../../../public/media/rus.png";
 import gb from "../../../public/media/gb.png";
+import { useContext } from "react";
+import { SiteInfoContext } from "../../../contexts/siteinfo";
 
 type Props = {
   isLangs: boolean;
@@ -18,6 +20,7 @@ type Props = {
 
 export function Header({ isLangs, setIsLangs, isMenu, setIsMenu }: Props) {
   const { pathname, locale, locales, asPath } = useRouter();
+  const { numbers } = useContext(SiteInfoContext);
 
   const navigation = [
     {
@@ -67,7 +70,7 @@ export function Header({ isLangs, setIsLangs, isMenu, setIsMenu }: Props) {
           <span className={isMenu ? styles.hide : ""}></span>
           <span className={isMenu ? styles.rotate_45 : ""}></span>
         </button>
-        <a href={`tel: +998 00 000 00 00`} className={styles.mobile_number}>
+        <a href={`tel: ${numbers[0]}`} className={styles.mobile_number}>
           {phone}
         </a>
         <div className={styles.main_nav}>
@@ -160,8 +163,8 @@ export function Header({ isLangs, setIsLangs, isMenu, setIsMenu }: Props) {
               })}
             </div>
           </button>
-          <a href={`tel: +998 00 000 00 00`} className={styles.number}>
-            +998 00 000 00 00
+          <a href={`tel: ${numbers[0]}`} className={styles.number}>
+            {numbers[0]}
           </a>
         </div>
       </div>

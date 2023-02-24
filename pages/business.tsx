@@ -7,6 +7,7 @@ import styles from "../styles/business.module.css";
 import introImg from "../public/media/intro.png";
 import Image from "next/image";
 import { url } from "./_app";
+import { WhyUsSection } from "../components/universal/whyus/whyus";
 
 export default function Home() {
   return (
@@ -38,8 +39,13 @@ export default function Home() {
             />
           </div>
         </article>
-        <Advantages className="section" title={"Bizning afzalliklarimiz"} />
+        <WhyUsSection
+          variant="business"
+          className="section"
+          title={"Nega biz bilan ishlashingiz kerak?"}
+        />
         <Partners />
+        <Advantages className="section" title={"Bizning afzalliklarimiz"} />
       </Layout>
     </>
   );

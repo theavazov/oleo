@@ -1,10 +1,12 @@
-import { products } from "../../pages/products";
+import { useContext } from "react";
+import { ProductsContext } from "../../contexts/products";
 import { arrowRight, download } from "../../public/icons";
 import styles from "../../styles/home.module.css";
 import { ProductCard } from "../universal/product_card/product_card";
 import { Button } from "../utils/buttons/buttons";
 
 export function MainProducts() {
+  const { products } = useContext(ProductsContext);
   return (
     <article className={styles.products_section}>
       <div className="bigbox grid_container">

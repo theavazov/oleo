@@ -5,32 +5,34 @@ import { Layout } from "../components/utils/layout";
 import { Location } from "../components/utils/location/location";
 import styles from "../styles/about.module.css";
 import aboutImg from "../public/media/ab_pg.jpg";
-import { facebook, instagram, telegram, twitter } from "../public/icons";
+import { facebook, instagram, telegram } from "../public/icons";
 import { MainForm } from "../components/universal/form/form";
 import chel from "../public/media/chel.png";
 import Image from "next/image";
 import { url } from "./_app";
+import { WhyUsSection } from "../components/universal/whyus/whyus";
+import { useContext } from "react";
+import { ModalContext } from "../contexts/modal";
+import { SiteInfoContext } from "../contexts/siteinfo";
 
 export default function Home() {
+  const { siteInfo, numbers } = useContext(SiteInfoContext);
+  const { variant, setIsModal } = useContext(ModalContext);
+
   const socialmedia = [
     {
       id: 1,
-      path: "#",
+      path: siteInfo.facebook,
       icon: facebook,
     },
     {
       id: 2,
-      path: "#",
-      icon: twitter,
-    },
-    {
-      id: 3,
-      path: "#",
+      path: siteInfo.telegram,
       icon: telegram,
     },
     {
-      id: 4,
-      path: "#",
+      id: 3,
+      path: siteInfo.instagram,
       icon: instagram,
     },
   ];
@@ -65,7 +67,12 @@ export default function Home() {
                 shug‘ullanadi.{" "}
               </p>
             </div>
-            <div className={styles.intro_right}></div>
+            <div
+              className={styles.intro_right}
+              onClick={() => {
+                setIsModal(true);
+              }}
+            ></div>
           </div>
         </article>
         <Advantages className="mini_section" />
@@ -98,16 +105,18 @@ export default function Home() {
                     </a>
                   );
                 })}
-                <a
-                  href={`tel: +998 00 000 00 00`}
-                  className={styles.middle_number}
-                >
-                  +998 00 000 00 00
+                <a href={`tel: ${numbers[0]}`} className={styles.middle_number}>
+                  {numbers[0]}
                 </a>
               </nav>
             </div>
           </div>
         </article>
+        <WhyUsSection
+          variant="stats"
+          className="mini_section"
+          title={"Kompaniyamiz ishlab chiqarishi sonlarda"}
+        />
         <article className="mini_section">
           <div className={`box ${styles.about_bottom_inner}`}>
             <MainForm />

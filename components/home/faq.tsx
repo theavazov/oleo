@@ -12,7 +12,6 @@ export function MainFAQ() {
   useEffect(() => {
     getFAQ(locale)
       .then((res) => {
-        console.log(res.results);
         setFaqs(res.results);
       })
       .catch((e) => console.log(e));
