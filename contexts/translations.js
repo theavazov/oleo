@@ -24,13 +24,7 @@ export default function TranslationsContextProvider({ children }) {
     setIsLoading(true);
     getTranslations()
       .then((res) => {
-        if (locale === "en") {
-          setT(res.en);
-        } else if (locale === "ru") {
-          setT(res.ru);
-        } else if (locale === "uz") {
-          setT(res.uz);
-        }
+        setT(res);
         setIsLoading(false);
       })
       .catch((e) => console.log(e));

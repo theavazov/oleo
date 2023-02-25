@@ -20,8 +20,7 @@ export function CustomHead({ title, desc, canonical }: Props) {
       <link rel="alternate" hrefLang="en" href={`${url}/en`} />
       <link rel="alternate" hrefLang="ru" href={`${url}/ru`} />
       <link rel="alternate" hrefLang="uz" href={url} />
-      <link rel="shortcut icon" href="/favicon.png" type="image/x-icon" />
-      <link rel="icon" href="/favicon.ico" />
+      <link rel="shortcut icon" href="/favicon.jpg" type="image/x-icon" />
     </Head>
   );
 }

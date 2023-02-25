@@ -1,45 +1,19 @@
-import { Splide, SplideSlide } from "@splidejs/react-splide";
-import { AutoScroll } from "@splidejs/splide-extension-auto-scroll";
-import "@splidejs/react-splide/css";
 import { arrowRight, chevron } from "../../public/icons";
 import styles from "../../styles/home.module.css";
 import { Button } from "../utils/buttons/buttons";
-import newsImg from "../../public/media/about_img.jpg";
 import { NewsCard } from "../universal/news_card/news_card";
+import { useContext, useRef } from "react";
+import { ProductsContext } from "../../contexts/products";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import { Autoplay, Navigation } from "swiper";
 
 export function MainNewsSection() {
-  const newsList = [
-    {
-      title: 'Растительно-сливочный спред "OLEO"',
-      slug: "news-1",
-      image: newsImg,
-    },
-    {
-      title: 'Растительно-сливочный спред "OLEO"',
-      slug: "news-2",
-      image: newsImg,
-    },
-    {
-      title: 'Растительно-сливочный спред "OLEO"',
-      slug: "news-3",
-      image: newsImg,
-    },
-    {
-      title: 'Растительно-сливочный спред "OLEO"',
-      slug: "news-4",
-      image: newsImg,
-    },
-    {
-      title: 'Растительно-сливочный спред "OLEO"',
-      slug: "news-5",
-      image: newsImg,
-    },
-    {
-      title: 'Растительно-сливочный спред "OLEO"',
-      slug: "news-6",
-      image: newsImg,
-    },
-  ];
+  const { news } = useContext(ProductsContext);
+
+  const prevBtn = useRef<HTMLButtonElement | null>(null);
+  const nextBtn = useRef<HTMLButtonElement | null>(null);
 
   return (
     <article className={`section news ${styles.news_section}`}>
@@ -50,48 +24,65 @@ export function MainNewsSection() {
         </p>
       </div>
       <div className={`bigbox ${styles.news_section_slides_container}`}>
-        <Splide
-          options={{
-            type: "loop",
-            gap: "20px",
-            perPage: 4,
-            drag: "free",
-            focus: "center",
-            autoScroll: {
-              speed: 1,
-            },
-            classes: {
-              prev: "splide__arrow--prev prev",
-              next: "splide__arrow--next next",
-            },
-          }}
-        >
-          {newsList.map((news: any, i: number) => {
-            return (
-              <SplideSlide key={i}>
-                <NewsCard news={news} />
-              </SplideSlide>
-            );
-          })}
-        </Splide>
+        <div className="desktop">
+          <Swiper
+            modules={[Navigation, Autoplay]}
+            spaceBetween={20}
+            slidesPerView="auto"
+            breakpoints={{
+              880: {
+                slidesPerView: 2,
+              },
+              1200: {
+                slidesPerView: 3,
+              },
+              1800: {
+                slidesPerView: 4,
+              },
+            }}
+            speed={1600}
+            autoplay={{ delay: 2000, disableOnInteraction: true }}
+            navigation={{
+              prevEl: prevBtn.current,
+              nextEl: nextBtn.current,
+            }}
+            onBeforeInit={(swiper: any) => {
+              swiper.params.navigation.prevEl = prevBtn.current;
+              swiper.params.navigation.nextEl = nextBtn.current;
+            }}
+          >
+            {news.map((news: any, i: number) => {
+              return (
+                <SwiperSlide key={i}>
+                  <NewsCard news={news} />
+                </SwiperSlide>
+              );
+            })}
+          </Swiper>
+        </div>
+        <div className="mobile">
+          <div className="grid_container">
+            {news.length > 0
+              ? news.map((news: any, i: number) => {
+                  return <NewsCard key={i} news={news} />;
+                })
+              : null}
+          </div>
+        </div>
       </div>
       <div className={`box ${styles.news_section_bottom}`}>
         <Button variant="primary" path="/news" icon={arrowRight}>
           Barcha yangiliklar
         </Button>
-        <div className={styles.news_section_buttons}>
+        <div className="swiper_buttons">
           <button
-            className="my__arrow splide__arrow--prev prev"
-            aria-label="Next slide"
-            aria-controls="splide01-track"
+            ref={prevBtn}
+            className="swiper_btn"
+            aria-label="Previous slide"
           >
             {chevron}
           </button>
-          <button
-            className="my__arrow splide__arrow--next next"
-            aria-label="Next slide"
-            aria-controls="splide01-track"
-          >
+          <button ref={nextBtn} className="swiper_btn" aria-label="Next slide">
             {chevron}
           </button>
         </div>

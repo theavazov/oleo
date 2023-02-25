@@ -46,7 +46,7 @@ export default function ProductsPage() {
             <div
               className={`bigbox grid_container ${styles.products_container}`}
             >
-              {products
+              {products.length > 0
                 ? products.map((product: any, i: number) => {
                     return <ProductCard key={i} product={product} />;
                   })

@@ -22,7 +22,7 @@ export function MainForm() {
         <input type="text" placeholder="Telefon raqamingiz" />
         <textarea
           cols="30"
-          rows="8"
+          rows="6"
           placeholder="Habaringizni yozib qoldiring..."
         ></textarea>
         <button>Ma’lumotlarni yuborish</button>

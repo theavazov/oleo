@@ -18,13 +18,19 @@ export function Location({ location, backPath, parent }: Props) {
 
   return (
     <article className={styles.location_section}>
-      <div className={`box ${styles.location_inner}`}>
+      <div
+        className={
+          parent
+            ? `box ${styles.location_inner} ${styles.none}`
+            : `box ${styles.location_inner}`
+        }
+      >
         <Link href={`${backPath}`} className={styles.nazad}>
           {chevron} Orqaga
         </Link>
         <nav className={styles.location_nav}>
           <Link href={"/"} className={styles.node}>
-            Asosiy
+            {t["main.main"]}
           </Link>
           <span className={styles.node}>/</span>
           {parent ? (

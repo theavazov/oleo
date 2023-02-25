@@ -65,7 +65,7 @@
 }
 
 @media (max-width: 580px) {
-  .location_inner {
+  .location_inner.none {
     display: none;
   }
 }

@@ -1,6 +1,7 @@
 import { useContext, useEffect } from "react";
 import { ModalContext } from "../../../contexts/modal";
 import styles from "./modal.module.css";
+import { ModalForm } from "./form";
 
 export function Modal() {
   const { variant, setIsModal } = useContext(ModalContext);
@@ -20,8 +21,17 @@ export function Modal() {
 
   return (
     <article className={styles.modal}>
-      <div className={styles.modal_inner}>
-        {variant === "youtube" ? <YoutubeModal /> : null}
+      <div
+        style={{ maxWidth: variant === "post" ? "560px" : "" }}
+        className={styles.modal_inner}
+      >
+        {variant === "youtube" ? (
+          <YoutubeModal />
+        ) : variant === "business" ? (
+          <BusinessModal />
+        ) : variant === "post" ? (
+          <PostModal />
+        ) : null}
       </div>
     </article>
   );
@@ -33,6 +43,19 @@ const YoutubeModal = () => {
   return (
     <div className={styles.youtube_container}>
       <iframe src={`${video}?autoplay=1&mute=1&controls=1`}></iframe>
+    </div>
+  );
+};
+
+const BusinessModal = () => {
+  return <div className={styles.business_container}>Business</div>;
+};
+
+const PostModal = () => {
+  return (
+    <div className={styles.post_container}>
+      <p>Заполните форму</p>
+      <ModalForm />
     </div>
   );
 };

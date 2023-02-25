@@ -4,8 +4,9 @@ export const ModalContext = createContext();
 
 export default function ModalContextProvider({ children }) {
   const [isModal, setIsModal] = useState(false);
-  const [variant, setVariant] = useState(""); // business || youtube
+  const [variant, setVariant] = useState(""); // business || youtube || post
   const [video, setVideo] = useState(null); // youtube video link
+  const [productContent, setProductContent] = useState({});
 
   const value = {
     isModal,
@@ -14,6 +15,8 @@ export default function ModalContextProvider({ children }) {
     setVariant,
     video,
     setVideo,
+    productContent,
+    setProductContent,
   };
 
   return (

@@ -5,7 +5,7 @@ import styles from "../../styles/product.module.css";
 import { ProductCard } from "../../components/universal/product_card/product_card";
 import { useRouter } from "next/router";
 import { url } from "../_app";
-import { useContext, useEffect, useRef } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { ProductsContext } from "../../contexts/products";
 import { getProductBySlug } from "../../server/getProductBySlug";
 import { SiteInfoContext } from "../../contexts/siteinfo";
@@ -14,7 +14,9 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { Autoplay, Navigation } from "swiper";
 import { Button } from "../../components/utils/buttons/buttons";
-import { arrowRight, chevron, download } from "../../public/icons";
+import { arrowRight, buy, chevron, download } from "../../public/icons";
+import Image from "next/image";
+import { ModalContext } from "../../contexts/modal";
 
 export default function ProductInnerPage() {
   const router = useRouter();
@@ -22,6 +24,10 @@ export default function ProductInnerPage() {
 
   const { siteInfo } = useContext(SiteInfoContext);
   const { products } = useContext(ProductsContext);
+  const { setVariant, setIsModal, setProductContent } =
+    useContext(ModalContext);
+
+  const [product, setProduct] = useState<any>({});
 
   const prevBtn = useRef<HTMLButtonElement | null>(null);
   const nextBtn = useRef<HTMLButtonElement | null>(null);
@@ -29,26 +35,85 @@ export default function ProductInnerPage() {
   useEffect(() => {
     if (router.isReady) {
       getProductBySlug(router.locale, slug)
-        .then((res) => console.log(res))
-        .catch((e) => console.log(e));
+        .then((res) => {
+          setProduct(res);
+        })
+        .catch(() => router.push("/"));
     }
-  }, [router]);
+  }, [slug]);
+
+  const customFunction = () => {
+    setProductContent(product);
+    setVariant("post");
+    setIsModal(true);
+  };
 
   return (
     <>
       <CustomHead
-        title={slug}
-        desc={"Oleoning aynan bitta mahsuloti"}
+        title={product?.name}
+        desc={product.meta?.meta_deck}
         canonical={`${url}/products/${slug}`}
       />
       <Layout>
         <Location
-          location={"slug"}
+          location={product?.name}
           backPath={"/products"}
           parent={{ text: "Mahsulotlarimiz", path: "/products" }}
         />
-        <article>
-          <div className={`box ${styles.single_product_inner}`}></div>
+        <article className={styles.single_product}>
+          <div className={`box ${styles.single_product_inner}`}>
+            <div className="desktop">
+              <Image
+                src={product?.image}
+                alt={product?.name}
+                width={450}
+                height={400}
+                className={styles.product_image}
+              />
+            </div>
+            <div>
+              <div className={styles.product_titles}>
+                <h3 className="section_title">{product?.name}</h3>
+                <p>{product?.subtitle}</p>
+              </div>
+              <div className="mobile">
+                <Image
+                  style={{ marginTop: "32px" }}
+                  src={product?.image}
+                  alt={product?.name}
+                  width={450}
+                  height={400}
+                  className={styles.product_image}
+                />
+              </div>
+              <div className={styles.product_info}>
+                <div className={styles.info_container}>
+                  <p>Состав:</p>
+                  <div
+                    className={styles.info_div}
+                    dangerouslySetInnerHTML={{ __html: product?.description }}
+                  ></div>
+                </div>
+                <div className={styles.info_container}>
+                  <p>Срок годности:</p>
+                  <div
+                    className={styles.info_div}
+                    dangerouslySetInnerHTML={{ __html: product?.bb_date }}
+                  ></div>
+                </div>
+              </div>
+              <div className={styles.inner_bottom_button}>
+                <Button
+                  variant="primary"
+                  icon={buy}
+                  customFunction={customFunction}
+                >
+                  Sotib olish
+                </Button>
+              </div>
+            </div>
+          </div>
         </article>
         <article className={styles.another_products_section}>
           <div className="box section_inner">
@@ -82,7 +147,7 @@ export default function ProductInnerPage() {
                   swiper.params.navigation.nextEl = nextBtn.current;
                 }}
               >
-                {products
+                {products.length > 0
                   ? products.map((product: any, i: number) => {
                       return (
                         <SwiperSlide key={i}>
@@ -95,7 +160,7 @@ export default function ProductInnerPage() {
             </div>
             <div className="mobile">
               <div className="grid_container">
-                {products
+                {products.length > 0
                   ? products.map((product: any, i: number) => {
                       return <ProductCard key={i} product={product} />;
                     })

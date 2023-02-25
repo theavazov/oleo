@@ -7,6 +7,7 @@ type Props = {
   icon: any;
   path?: string;
   isDownload?: boolean;
+  customFunction?: Function;
 };
 
 type ButtonProps = {
@@ -14,38 +15,72 @@ type ButtonProps = {
   icon: any;
   path?: string;
   isDownload?: boolean;
+  customFunction?: Function;
 };
 
-export function Button({ variant, children, icon, path, isDownload }: Props) {
+export function Button({
+  variant,
+  children,
+  icon,
+  path,
+  isDownload,
+  customFunction,
+}: Props) {
   switch (variant) {
     case "primary":
       return (
-        <Primary icon={icon} path={path} isDownload={isDownload}>
+        <Primary
+          icon={icon}
+          path={path}
+          isDownload={isDownload}
+          customFunction={customFunction}
+        >
           {children}
         </Primary>
       );
     case "secondary":
       return (
-        <Secondary icon={icon} path={path} isDownload={isDownload}>
+        <Secondary
+          icon={icon}
+          path={path}
+          isDownload={isDownload}
+          customFunction={customFunction}
+        >
           {children}
         </Secondary>
       );
     case "third":
       return (
-        <Third icon={icon} path={path} isDownload={isDownload}>
+        <Third
+          icon={icon}
+          path={path}
+          isDownload={isDownload}
+          customFunction={customFunction}
+        >
           {children}
         </Third>
       );
     default:
       return (
-        <Primary icon={icon} path={path} isDownload={isDownload}>
+        <Primary
+          icon={icon}
+          path={path}
+          isDownload={isDownload}
+          customFunction={customFunction}
+        >
           {children}
         </Primary>
       );
   }
 }
 
-const Primary = ({ children, icon, path, isDownload }: ButtonProps) => {
+const Primary = ({
+  children,
+  icon,
+  path,
+  isDownload,
+  customFunction,
+}: ButtonProps) => {
   if (path) {
     if (isDownload) {
       return (
@@ -70,7 +105,10 @@ const Primary = ({ children, icon, path, isDownload }: ButtonProps) => {
       );
   } else {
     return (
-      <button className={`${styles.btn} ${styles.primary}`}>
+      <button
+        className={`${styles.btn} ${styles.primary}`}
+        onClick={customFunction}
+      >
         <span className={styles.icon}>{icon}</span>
         {children}
       </button>
@@ -78,7 +116,13 @@ const Primary = ({ children, icon, path, isDownload }: ButtonProps) => {
   }
 };
 
-const Secondary = ({ children, icon, path, isDownload }: ButtonProps) => {
+const Secondary = ({
+  children,
+  icon,
+  path,
+  isDownload,
+  customFunction,
+}: ButtonProps) => {
   if (path) {
     if (isDownload) {
       return (
@@ -103,7 +147,10 @@ const Secondary = ({ children, icon, path, isDownload }: ButtonProps) => {
       );
   } else {
     return (
-      <button className={`${styles.btn} ${styles.secondary}`}>
+      <button
+        className={`${styles.btn} ${styles.secondary}`}
+        onClick={customFunction}
+      >
         <span className={styles.icon}>{icon}</span>
         {children}
       </button>
@@ -111,7 +158,13 @@ const Secondary = ({ children, icon, path, isDownload }: ButtonProps) => {
   }
 };
 
-const Third = ({ children, icon, path, isDownload }: ButtonProps) => {
+const Third = ({
+  children,
+  icon,
+  path,
+  isDownload,
+  customFunction,
+}: ButtonProps) => {
   if (path) {
     if (isDownload) {
       return (
@@ -136,7 +189,10 @@ const Third = ({ children, icon, path, isDownload }: ButtonProps) => {
       );
   } else {
     return (
-      <button className={`${styles.btn} ${styles.third}`}>
+      <button
+        className={`${styles.btn} ${styles.third}`}
+        onClick={customFunction}
+      >
         <span className={styles.icon}>{icon}</span>
         {children}
       </button>

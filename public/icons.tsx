@@ -177,3 +177,10 @@ export const galochka = (
     />
   </svg>
 );
+
+export const buy = (
+  <svg viewBox="0 0 29 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M29 10.6749L0 0L5.4864 10.6749H29Z" fill="currentColor" />
+    <path d="M0 23L29 12.3251H5.4864L0 23Z" fill="currentColor" />
+  </svg>
+);
