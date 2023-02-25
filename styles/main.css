@@ -53,7 +53,7 @@ p {
 .wrapper {
   display: flex;
   flex-direction: column;
-  min-height: 105vh;
+  min-height: 100vh;
 }
 
 main {
@@ -266,6 +266,11 @@ main {
   .grid_container {
     grid-template-columns: 1fr 1fr;
     gap: 16px;
+  }
+  .accordion-button:not(.collapsed),
+  .accordion-button,
+  .accordion-body {
+    background-color: var(--red) !important;
   }
 }
 

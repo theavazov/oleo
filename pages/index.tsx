@@ -1,6 +1,7 @@
 import { MainAbout } from "../components/home/about";
 import { MainBottomForm } from "../components/home/bottom-form";
 import { MainBottomSection } from "../components/home/bottom-section";
+import { MainHero } from "../components/home/hero";
 import { MainNewsSection } from "../components/home/news";
 import { MainProducts } from "../components/home/products";
 import { CustomHead } from "../components/utils/head";
@@ -12,6 +13,7 @@ export default function Home() {
     <>
       <CustomHead title={"Oleo"} desc={"Oleo home page"} canonical={url} />
       <Layout>
+        <MainHero />
         <MainProducts />
         <MainAbout />
         <MainNewsSection />

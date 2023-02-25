@@ -74,17 +74,23 @@ export function MainNewsSection() {
         <Button variant="primary" path="/news" icon={arrowRight}>
           Barcha yangiliklar
         </Button>
-        <div className="swiper_buttons">
-          <button
-            ref={prevBtn}
-            className="swiper_btn"
-            aria-label="Previous slide"
-          >
-            {chevron}
-          </button>
-          <button ref={nextBtn} className="swiper_btn" aria-label="Next slide">
-            {chevron}
-          </button>
+        <div className="desktop">
+          <div className="swiper_buttons">
+            <button
+              ref={prevBtn}
+              className="swiper_btn"
+              aria-label="Previous slide"
+            >
+              {chevron}
+            </button>
+            <button
+              ref={nextBtn}
+              className="swiper_btn"
+              aria-label="Next slide"
+            >
+              {chevron}
+            </button>
+          </div>
         </div>
       </div>
     </article>

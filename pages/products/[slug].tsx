@@ -38,7 +38,7 @@ export default function ProductInnerPage() {
         .then((res) => {
           setProduct(res);
         })
-        .catch(() => router.push("/"));
+        .catch(() => router.push("/404"));
     }
   }, [slug]);
 
