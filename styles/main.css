@@ -36,8 +36,10 @@ textarea:focus {
   outline: none;
 }
 
-body {
+body,
+html {
   background-color: #f6edd1 !important;
+  overflow-x: hidden !important;
 }
 
 h1,

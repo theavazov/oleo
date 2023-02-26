@@ -27,6 +27,95 @@
   z-index: -1;
 }
 
+.hero_inner {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: end;
+  padding-bottom: 5%;
+  gap: 80px;
+}
+
+.hero_inner > img {
+  display: inline-block;
+  width: 100%;
+  height: 450px;
+  object-fit: contain;
+}
+
+.hero_content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.hero_titles {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  color: var(--red);
+}
+
+.hero_title {
+  font-size: 36px;
+  line-height: 45px;
+  font-weight: 700;
+  letter-spacing: -0em;
+}
+
+.hero_subtitle {
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: -0.03em;
+}
+
+.hero_buttons {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.hero_buttons a {
+  display: inline-block;
+  padding: 15px 40px;
+  border-radius: 58px;
+  background-color: var(--red);
+  border: 1px solid var(--red);
+  color: var(--white);
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  transition: 0.3s;
+}
+
+.hero_buttons a:hover {
+  background-color: var(--white);
+  color: var(--red);
+  transition: 0.3s;
+}
+
+.hero_buttons button {
+  display: inline-block;
+  padding: 15px 40px;
+  border-radius: 58px;
+  background-color: unset;
+  border: 1px solid var(--red);
+  color: var(--red);
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  transition: 0.3s;
+}
+
+.hero_buttons button:hover {
+  background-color: var(--red);
+  color: var(--white);
+  transition: 0.3s;
+}
+
 /* === PRODUCTS === */
 .products_section {
   padding-top: 32px;
@@ -63,6 +152,7 @@
   background-image: url("../public/media/about_img.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  margin-bottom: 0px;
 }
 
 .about_inner {
@@ -120,6 +210,74 @@
   line-height: 22px;
   font-weight: 700;
   color: var(--white);
+}
+
+/* === BUSINESS === */
+.business_section {
+  height: 740px;
+  z-index: 0;
+  position: relative;
+  background-image: url("../public/media/hero_bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.business_section::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: -10%;
+  right: -10%;
+  height: 100%;
+  max-height: 500px;
+  background-color: #f6edd1;
+  z-index: -1;
+  border-radius: 90% 90% 0 0;
+}
+
+.business_inner {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.business_content_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 36px;
+}
+
+.business_content_container > p {
+  font-size: 20px;
+  line-height: 20px;
+  font-weight: 500;
+  color: var(--red);
+  margin-top: 80px !important;
+}
+
+.business_advantages {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 40px;
+  row-gap: 20px;
+  padding: 38px 80px;
+  border-radius: 20px;
+  background-color: var(--red);
+}
+
+.business_advantages p {
+  text-align: center;
+  color: var(--white);
+}
+
+.business_btns {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 60px;
 }
 
 /* === NEWS SECTION === */
@@ -206,13 +364,95 @@
   grid-template-columns: 1fr 1fr;
 }
 
+/* === RECIPES SECTION === */
+.recipes_section {
+  position: relative;
+  background-color: var(--yellow);
+  padding-block: 120px;
+}
+
+.recipes_inner {
+  border: 1px solid var(--red);
+  height: 100%;
+}
+
+.recipes_content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: 40%;
+  width: 100%;
+  height: 100%;
+  background-color: var(--yellow);
+  z-index: 2;
+}
+
 @media (max-width: 1800px) {
   .about_section {
     height: 600px;
+    margin-bottom: 0px;
+  }
+  .hero_inner > img {
+    height: 400px;
+  }
+  .hero_subtitle,
+  .hero_buttons a,
+  .hero_buttons button {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .business_content_container > p {
+    text-align: center;
+  }
+  .business_advantages {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .business_btns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+  }
+  .business_section::before {
+    max-height: 550px;
+  }
+  .hero_inner {
+    gap: 40px;
+  }
+  .hero_inner > img {
+    height: 320px;
+  }
+  .hero_buttons a,
+  .hero_buttons button {
+    padding: 16px 32px;
   }
 }
 
 @media (max-width: 880px) {
+  .hero {
+    display: flex;
+    align-items: flex-end;
+  }
+  .hero_inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    height: fit-content;
+  }
+  .hero_content {
+    align-items: center;
+    gap: 24px;
+  }
+  .hero_title {
+    font-size: 20px;
+    line-height: 24px;
+  }
+  .hero_subtitle,
+  .hero_title {
+    text-align: center;
+  }
   .bottom_form_section_inner {
     padding-block: 80px;
     grid-template-columns: 1fr;
@@ -310,6 +550,9 @@
   .news_section {
     padding-bottom: 0px;
   }
+  .about_section {
+    margin-bottom: -60px;
+  }
   .about_inner {
     padding-top: 0px;
     transform: translateY(-60px);
@@ -317,12 +560,55 @@
   .products_section .bottom_section {
     padding-bottom: 48px;
   }
+  .business_section {
+    min-height: 800px;
+  }
+  .business_section::before {
+    right: -40%;
+    left: -40%;
+  }
+  .business_advantages {
+    padding: 30px 16px;
+    border-radius: 10px;
+    grid-template-columns: 1fr;
+    max-width: 100%;
+    width: 100%;
+    gap: 6px;
+  }
+  .business_advantages p:nth-child(2n + 1) {
+    margin-top: 30px !important;
+  }
+  .business_advantages p:first-child {
+    margin-top: 0px !important;
+  }
+  .business_btns {
+    gap: 16px;
+    margin-top: 24px;
+  }
+  .business_content_container > p {
+    font-size: 16px;
+    line-height: 24px;
+    margin-top: 60px !important;
+  }
 }
 
 @media (max-width: 380px) {
+  .hero_buttons {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    width: 100%;
+  }
+  .hero_buttons a,
+  .hero_buttons button {
+    max-width: 100%;
+    width: 100%;
+    text-align: center;
+  }
   .products_btns,
   .news_section_bottom,
-  .about_buttons {
+  .about_buttons,
+  .business_btns {
     grid-template-columns: 1fr;
   }
 }

@@ -8,15 +8,16 @@ import styles from "./modal.module.css";
 
 export function ModalForm() {
   const { siteInfo } = useContext(SiteInfoContext);
-  const { setIsModal } = useContext(ModalContext);
+  const { productContent, setIsModal } = useContext(ModalContext);
   const [isSuccess, setIsSuccess] = useState(false);
   const [name, setName] = useState("");
   const [number, setNumber] = useState("");
 
-  async function postRequest(name, number) {
+  async function postRequest(name, number, product) {
     const data = {
       full_name: name,
       nbm: `+998 ${number}`,
+      product: product.id,
     };
 
     const res = await axios.post(
@@ -29,7 +30,7 @@ export function ModalForm() {
 
   const handleRequest = (e) => {
     e.preventDefault();
-    postRequest(name, number)
+    postRequest(name, number, productContent)
       .then((res) => {
         if (res.status === 201) {
           setIsSuccess(true);
@@ -72,6 +73,10 @@ export function ModalForm() {
                 onChange={(e) => setNumber(e.target.value)}
               />
             </div>
+          </div>
+          <div className={styles.input_div}>
+            <label htmlFor="name">Ваш product</label>
+            <p>{productContent?.name}</p>
           </div>
         </div>
         <div className={styles.post_buttons}>

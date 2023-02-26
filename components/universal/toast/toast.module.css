@@ -7,15 +7,16 @@
   pointer-events: none;
   transition: 0.5s;
   transform: translateY(20px);
-  color: var(--white);
+  color: var(--white) !important;
   padding: 16px;
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 14px !important;
+  line-height: 20px !important;
   font-weight: 500;
   display: flex;
   align-items: center;
   gap: 4px;
   border-radius: 4px;
+  text-transform: none !important;
 }
 
 .toast.show {

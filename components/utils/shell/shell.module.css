@@ -1,0 +1,56 @@
+.shell {
+  width: 470px;
+  height: 180px;
+  border: 8px solid var(--red);
+  position: relative;
+  filter: drop-shadow(0px 23px 47px rgba(215, 42, 51, 0.3));
+  background-color: var(--yellow);
+  display: grid;
+  place-items: center;
+}
+
+.shell p {
+  font-size: 28px;
+  line-height: 28px;
+  font-weight: 700;
+  max-width: 230px;
+  text-align: center;
+  color: var(--red);
+}
+
+.shell::before {
+  content: "";
+  position: absolute;
+  top: -40px;
+  left: 0;
+  width: 100%;
+  height: calc(180px + 80px);
+  border-radius: 100% / 240px;
+  border: 8px solid var(--red);
+  background-color: currentColor;
+  z-index: -2;
+}
+
+.shell::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: currentColor;
+  z-index: -1;
+}
+
+@media (max-width: 580px) {
+  .shell {
+    max-width: 420px;
+    width: 100%;
+    height: 140px;
+  }
+  .shell::before {
+    top: -35px;
+    height: calc(140px + 60px);
+    border-radius: 100% / 160px;
+  }
+}
