@@ -248,6 +248,21 @@ main {
   line-height: 22px !important;
 }
 
+.css-13cymwt-control,
+.css-13cymwt-control,
+.css-t3ipsp-control {
+  background-color: rgba(217, 217, 217, 0.3) !important;
+  padding: 16px 20px !important;
+  border: none !important;
+  border-radius: 15px !important;
+}
+
+.css-13cymwt-control:focus,
+.css-13cymwt-control:focus,
+.css-t3ipsp-control:focus {
+  outline: none !important;
+}
+
 @media (max-width: 1800px) {
   .grid_container {
     grid-template-columns: repeat(3, 1fr);
@@ -292,6 +307,11 @@ main {
     font-size: 14px !important;
     line-height: 20px !important;
     padding-inline: 20px !important;
+  }
+  .css-13cymwt-control,
+  .css-13cymwt-control,
+  .css-t3ipsp-control {
+    padding: 16px !important;
   }
 }
 

@@ -2,6 +2,8 @@ import { useContext, useEffect } from "react";
 import { ModalContext } from "../../../contexts/modal";
 import styles from "./modal.module.css";
 import { ModalForm } from "./form";
+import { Shell } from "../shell/shell";
+import { BusinessForm } from "./businessform";
 
 export function Modal() {
   const { variant, setIsModal } = useContext(ModalContext);
@@ -48,7 +50,14 @@ const YoutubeModal = () => {
 };
 
 const BusinessModal = () => {
-  return <div className={styles.business_container}>Business</div>;
+  return (
+    <div className={styles.business_container}>
+      <div className={styles.shell_wrapper}>
+        <Shell background="#ffffff" />
+      </div>
+      <BusinessForm />
+    </div>
+  );
 };
 
 const PostModal = () => {
