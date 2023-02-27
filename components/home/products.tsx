@@ -8,9 +8,11 @@ import { arrowRight, chevron, download } from "../../public/icons";
 import styles from "../../styles/home.module.css";
 import { ProductCard } from "../universal/product_card/product_card";
 import { Button } from "../utils/buttons/buttons";
+import { SiteInfoContext } from "../../contexts/siteinfo";
 
 export function MainProducts() {
   const { products } = useContext(ProductsContext);
+  const { siteInfo } = useContext(SiteInfoContext);
 
   const prevBtn = useRef<HTMLButtonElement | null>(null);
   const nextBtn = useRef<HTMLButtonElement | null>(null);
@@ -72,7 +74,12 @@ export function MainProducts() {
             <Button variant="primary" icon={arrowRight} path={"/products"}>
               Batafsil ko`rish
             </Button>
-            <Button variant="third" icon={download} path={"#"}>
+            <Button
+              variant="third"
+              icon={download}
+              path={siteInfo.cotalog}
+              isDownload={true}
+            >
               Katalogni Yuklab olish
             </Button>
           </div>
