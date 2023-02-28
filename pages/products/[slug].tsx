@@ -17,6 +17,7 @@ import { Button } from "../../components/utils/buttons/buttons";
 import { arrowRight, buy, chevron, download } from "../../public/icons";
 import Image from "next/image";
 import { ModalContext } from "../../contexts/modal";
+import noimage from "../../public/media/logo.png";
 
 export default function ProductInnerPage() {
   const router = useRouter();
@@ -65,11 +66,12 @@ export default function ProductInnerPage() {
           <div className={`box ${styles.single_product_inner}`}>
             <div className="desktop">
               <Image
-                src={product?.image}
+                src={product.image ? product.image : noimage}
                 alt={product?.name}
                 width={450}
                 height={400}
                 className={styles.product_image}
+                quality={100}
               />
             </div>
             <div>
@@ -80,7 +82,7 @@ export default function ProductInnerPage() {
               <div className="mobile">
                 <Image
                   style={{ marginTop: "32px" }}
-                  src={product?.image}
+                  src={product.image ? product.image : noimage}
                   alt={product?.name}
                   width={450}
                   height={400}

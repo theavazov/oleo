@@ -20,9 +20,9 @@ export function MainRecipes() {
 
   return (
     <article className={styles.recipes_section}>
-      <div className={styles.recipes_content}>
+      {/* <div className={styles.recipes_content}>
         <div className={`box ${styles.recipes_inner}`}>Recipes</div>
-      </div>
+      </div> */}
       <div className={`bigbox`}>
         <Swiper spaceBetween={30} slidesPerView={5}>
           {recipes.map((recipe: any, i: number) => {

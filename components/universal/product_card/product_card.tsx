@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./product_card.module.css";
+import noimage from "../../../public/media/logo.png";
 
 export function ProductCard({ product }: { product: any }) {
   return (
@@ -8,7 +9,7 @@ export function ProductCard({ product }: { product: any }) {
       <div className={styles.card_top}>
         <p>{product.category?.name}</p>
         <Image
-          src={product.image}
+          src={product.image ? product.image : noimage}
           alt={product.name ? product.name : "product image"}
           width={280}
           height={245}

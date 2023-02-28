@@ -217,15 +217,22 @@
   height: 740px;
   z-index: 0;
   position: relative;
-  background-image: url("../public/media/hero_bg.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
+}
+
+.business_section > video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
 }
 
 .business_section::before {
   content: "";
   position: absolute;
-  bottom: 0;
+  bottom: -10px;
   left: -10%;
   right: -10%;
   height: 100%;
@@ -367,13 +374,7 @@
 /* === RECIPES SECTION === */
 .recipes_section {
   position: relative;
-  background-color: var(--yellow);
   padding-block: 120px;
-}
-
-.recipes_inner {
-  border: 1px solid var(--red);
-  height: 100%;
 }
 
 .recipes_content {
@@ -383,8 +384,15 @@
   max-width: 40%;
   width: 100%;
   height: 100%;
-  background-color: var(--yellow);
   z-index: 2;
+  pointer-events: none;
+  background-color: var(--yellow);
+}
+
+.recipes_inner {
+  border: 1px solid var(--red);
+  height: 100%;
+  background-color: var(--yellow);
 }
 
 @media (max-width: 1800px) {

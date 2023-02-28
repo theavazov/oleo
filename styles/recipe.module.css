@@ -36,6 +36,7 @@
   max-width: 550px;
   width: 100%;
   position: relative;
+  z-index: 0;
 }
 
 .recipe_image {

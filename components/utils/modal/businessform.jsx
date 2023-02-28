@@ -18,6 +18,7 @@ export function BusinessForm() {
   const [isSuccess, setIsSuccess] = useState(false);
   const [name, setName] = useState("");
   const [number, setNumber] = useState("");
+  const [isValid, setIsValid] = useState(false);
 
   async function getActivities(locale) {
     const res = await axios.get(
@@ -46,6 +47,7 @@ export function BusinessForm() {
 
   const handleActivity = (option) => {
     setSelectedActivity(option.value);
+    setIsValid(true);
   };
 
   async function postRequest(name, number, activity) {
@@ -65,20 +67,22 @@ export function BusinessForm() {
 
   const handleRequest = (e) => {
     e.preventDefault();
-    postRequest(name, number, selectedActivity)
-      .then((res) => {
-        if (res.status === 201) {
-          setIsSuccess(true);
-          setName("");
-          setNumber("");
-          setSelectedActivity(-1);
-          setTimeout(() => {
-            setIsModal(false);
-            setIsSuccess(false);
-          }, 1000);
-        }
-      })
-      .catch((e) => console.log(e));
+    if (isValid) {
+      postRequest(name, number, selectedActivity)
+        .then((res) => {
+          if (res.status === 201) {
+            setIsSuccess(true);
+            setName("");
+            setNumber("");
+            setSelectedActivity(-1);
+            setTimeout(() => {
+              setIsModal(false);
+              setIsSuccess(false);
+            }, 1000);
+          }
+        })
+        .catch((e) => console.log(e));
+    }
   };
 
   return (
@@ -93,10 +97,11 @@ export function BusinessForm() {
             onChange={(e) => setName(e.target.value)}
           />
           <Select
-            defaultValue={"Sohangizni tanlang"}
+            placeholder={"Sohangizni tanlang"}
             onChange={handleActivity}
             options={options}
             className={styles.mySelect}
+            required
           ></Select>
           <IMaskInput
             mask={"+998 (00) 000 00 00"}
@@ -106,7 +111,12 @@ export function BusinessForm() {
             onChange={(e) => setNumber(e.target.value)}
           />
         </div>
-        <button className={styles.mybutton} type="submit">
+        <button
+          className={styles.mybutton}
+          type="submit"
+          style={{ opacity: isValid ? "1" : "0.6" }}
+          disabled={isValid ? false : true}
+        >
           <Button variant="primary" icon={buy}>
             Zayavka yuborish
           </Button>

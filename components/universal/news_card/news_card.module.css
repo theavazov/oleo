@@ -18,6 +18,7 @@
   height: 270px;
   border-radius: 20px;
   overflow: hidden;
+  background-color: var(--red);
 }
 
 .card_content {

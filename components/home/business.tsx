@@ -4,6 +4,7 @@ import { arrowRight, buy } from "../../public/icons";
 import styles from "../../styles/home.module.css";
 import { Button } from "../utils/buttons/buttons";
 import { Shell } from "../utils/shell/shell";
+import myVideo from "../../public/media/oleo.mp4";
 
 export function MainBusiness() {
   const { setVariant, setIsModal } = useContext(ModalContext);
@@ -40,6 +41,9 @@ export function MainBusiness() {
           </Button>
         </div>
       </div>
+      <video playsInline autoPlay loop muted>
+        <source src={myVideo} type="video/mp4" />
+      </video>
     </article>
   );
 }

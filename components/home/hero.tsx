@@ -7,6 +7,7 @@ import { useContext, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { ModalContext } from "../../contexts/modal";
+import noimage from "../../public/media/logo.png";
 
 export function MainHero() {
   const { locale } = useRouter();
@@ -39,7 +40,7 @@ export function MainHero() {
     <section className={styles.hero}>
       <div className={`box ${styles.hero_inner}`}>
         <Image
-          src={product.image}
+          src={product.image ? product.image : noimage}
           alt={product.name}
           width={500}
           height={500}

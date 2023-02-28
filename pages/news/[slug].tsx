@@ -2,7 +2,7 @@ import { CustomHead } from "../../components/utils/head";
 import { Layout } from "../../components/utils/layout";
 import { Location } from "../../components/utils/location/location";
 import styles from "../../styles/news.module.css";
-import newsImg from "../../public/media/about_img.jpg";
+import noimage from "../../public/media/logo.png";
 import { CustomImage } from "../../components/utils/image";
 import { share } from "../../public/icons";
 import { useRouter } from "next/router";
@@ -67,7 +67,7 @@ export default function NewsInnerPage() {
             <div className={styles.single_news_content}>
               <div className={styles.single_news_img}>
                 <CustomImage
-                  source={singleOne.image ? singleOne.image : newsImg}
+                  source={singleOne.image ? singleOne.image : noimage}
                   alt="single news"
                   width={1200}
                   height={480}
