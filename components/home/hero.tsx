@@ -8,12 +8,16 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import { ModalContext } from "../../contexts/modal";
 import noimage from "../../public/media/logo.png";
+import mumu from "../../public/media/mumu.mp4";
+import { pause, play } from "../../public/icons";
 
 export function MainHero() {
   const { locale } = useRouter();
 
   const { setVariant, setProductContent, setIsModal } =
     useContext(ModalContext);
+
+  const [isMuted, setIsMuted] = useState<boolean>(true);
 
   const [product, setProduct] = useState<any>({});
 
@@ -63,8 +67,20 @@ export function MainHero() {
             </button>
           </div>
         </div>
+        <button className={styles.pult} onClick={() => setIsMuted(!isMuted)}>
+          {isMuted ? play : pause}
+        </button>
       </div>
-      <Image src={background} alt="background" className={styles.background} />
+      {/* <Image src={background} alt="background" className={styles.background} /> */}
+      <video
+        className={styles.background}
+        playsInline
+        loop
+        autoPlay
+        muted={isMuted ? true : false}
+      >
+        <source src={mumu} type="video/mp4" />
+      </video>
       <Image src={mask} alt="background" className={styles.mask} />
     </section>
   );

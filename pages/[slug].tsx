@@ -71,7 +71,12 @@ export default function RetseptPage() {
                 {play}
               </button>
               <div className={styles.recipe_image}>
-                <CustomImage source={recipeImg} alt="recipe image" />
+                <CustomImage
+                  source={recipe.image ? recipe.image : recipeImg}
+                  alt="recipe image"
+                  width={520}
+                  height={520}
+                />
               </div>
             </div>
             <div className="mobile">
