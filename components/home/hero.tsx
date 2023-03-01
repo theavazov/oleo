@@ -10,6 +10,7 @@ import { ModalContext } from "../../contexts/modal";
 import noimage from "../../public/media/logo.png";
 import mumu from "../../public/media/mumu.mp4";
 import { pause, play } from "../../public/icons";
+import { url } from "../../pages/_app";
 
 export function MainHero() {
   const { locale } = useRouter();
@@ -18,6 +19,7 @@ export function MainHero() {
     useContext(ModalContext);
 
   const [isMuted, setIsMuted] = useState<boolean>(true);
+  const [isCookie, setIsCookie] = useState<boolean>(true);
 
   const [product, setProduct] = useState<any>({});
 
@@ -70,8 +72,29 @@ export function MainHero() {
         <button className={styles.pult} onClick={() => setIsMuted(!isMuted)}>
           {isMuted ? play : pause}
         </button>
+        {isCookie ? (
+          <div className={styles.cookie}>
+            <p>sayt {url} xochet otpravit vam cookies</p>
+            <div>
+              <button
+                onClick={() => {
+                  setIsCookie(false);
+                }}
+              >
+                Ne prinyat
+              </button>
+              <button
+                onClick={() => {
+                  setIsMuted(false);
+                  setIsCookie(false);
+                }}
+              >
+                Prinyat
+              </button>
+            </div>
+          </div>
+        ) : null}
       </div>
-      {/* <Image src={background} alt="background" className={styles.background} /> */}
       <video
         className={styles.background}
         playsInline

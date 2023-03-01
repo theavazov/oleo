@@ -79,7 +79,7 @@
 @media (max-width: 1800px) {
   .card {
     gap: 24px;
-    min-height: 400px;
+    min-height: 440px;
   }
   .card_top img {
     max-width: 320px;

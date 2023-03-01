@@ -263,7 +263,7 @@ main {
   outline: none !important;
 }
 
-@media (max-width: 1800px) {
+@media (max-width: 1200px) {
   .grid_container {
     grid-template-columns: repeat(3, 1fr);
   }

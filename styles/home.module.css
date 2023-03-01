@@ -122,7 +122,7 @@
   bottom: 40px;
   width: 48px;
   height: 48px;
-  z-index: 5;
+  z-index: 2;
   background-color: unset;
   border: 2px solid var(--red);
   color: var(--red);
@@ -134,6 +134,44 @@
 .pult svg {
   width: 24px;
   height: 24px;
+}
+
+.cookie {
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  z-index: 2;
+  padding: 16px;
+  background-color: var(--white);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cookie p {
+  max-width: 250px;
+  color: var(--red);
+}
+
+.cookie div {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.cookie button {
+  padding: 10px 20px;
+}
+
+.cookie button:first-child {
+  background-color: var(--white);
+  border: 1px solid var(--red);
+  color: var(--red);
+}
+
+.cookie button:last-child {
+  background-color: var(--red);
+  color: var(--white);
 }
 
 /* === PRODUCTS === */

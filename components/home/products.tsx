@@ -26,13 +26,13 @@ export function MainProducts() {
             spaceBetween={20}
             slidesPerView="auto"
             breakpoints={{
-              880: {
+              0: {
                 slidesPerView: 2,
               },
-              1200: {
+              880: {
                 slidesPerView: 3,
               },
-              1800: {
+              1200: {
                 slidesPerView: 4,
               },
             }}
