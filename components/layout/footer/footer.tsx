@@ -123,7 +123,7 @@ export function Footer() {
       <div className={styles.footer_bottom}>
         <div className={`box ${styles.footer_bottom_inner}`}>
           <p>Copyright © PERO | Designed by abba marketing</p>
-          <p>{new Date().getFullYear()} - Powered by ABBA</p>
+          <p>{new Date().getFullYear()} - Powered by ABBA marketing</p>
         </div>
       </div>
     </>

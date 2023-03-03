@@ -506,9 +506,11 @@
 }
 
 .recipes_middle button svg {
-  width: 42px;
-  height: 42px;
+  width: 60px;
+  height: 60px;
   transform: rotate(45deg);
+  margin-top: 8px;
+  margin-left: 5px;
 }
 
 .recipes_middle p {
@@ -530,6 +532,12 @@
   .about_section {
     height: 600px;
     margin-bottom: 0px;
+  }
+  .hero .mask {
+    max-height: 450px;
+  }
+  .hero_content {
+    gap: 32px;
   }
   .hero_inner > img {
     height: 400px;

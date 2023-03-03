@@ -63,8 +63,6 @@ export function MainRecipes() {
                       </SwiperSlide>
                     );
                   })}
-                  <SwiperSlide>Slie 1</SwiperSlide>
-                  <SwiperSlide>Slie 1</SwiperSlide>
                 </Swiper>
               </div>
             </div>

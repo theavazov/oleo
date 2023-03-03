@@ -231,7 +231,7 @@
 
 .shell_wrapper {
   position: absolute;
-  top: -60px;
+  top: -80px;
   left: 0;
   width: 100%;
   display: flex;
@@ -286,12 +286,12 @@
     grid-template-columns: 1fr;
   }
   .shell_wrapper {
-    display: none;
+    top: -100px;
   }
   .business_container {
     min-height: auto;
     padding: 24px;
-    padding-top: 48px;
+    padding-top: 80px;
   }
   .inputs input,
   .inputs select {

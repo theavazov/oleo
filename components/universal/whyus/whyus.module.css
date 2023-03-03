@@ -200,6 +200,16 @@
 }
 
 @media (max-width: 880px) {
+  .business_content button {
+    background-color: var(--white);
+    color: var(--red);
+  }
+  .business_content button span {
+    background-color: var(--red) !important;
+  }
+  .business_content button span svg {
+    color: var(--white) !important;
+  }
   .stats_div,
   .stats_white {
     min-height: 260px;

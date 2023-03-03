@@ -17,8 +17,8 @@ export default function Home() {
       <Layout>
         <MainHero />
         <MainProducts />
-        <MainAbout />
         <MainRecipes />
+        <MainAbout />
         <MainBusiness />
         <MainNewsSection />
         <MainBottomSection />

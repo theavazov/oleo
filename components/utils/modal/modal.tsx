@@ -9,16 +9,14 @@ export function Modal() {
   const { variant, setIsModal } = useContext(ModalContext);
 
   useEffect(() => {
-    if (window.innerWidth >= 880) {
-      window.addEventListener("click", (e) => {
-        const target = e.target as Element;
-        if (target?.className === styles.modal) {
-          setIsModal(false);
-        } else if (target?.className === styles.modal_inner) {
-          setIsModal(true);
-        }
-      });
-    }
+    window.addEventListener("click", (e) => {
+      const target = e.target as Element;
+      if (target?.className === styles.modal) {
+        setIsModal(false);
+      } else if (target?.className === styles.modal_inner) {
+        setIsModal(true);
+      }
+    });
   }, []);
 
   return (
