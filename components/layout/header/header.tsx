@@ -64,7 +64,7 @@ export function Header({ isLangs, setIsLangs, isMenu, setIsMenu }: Props) {
       }
       style={{ backgroundColor: isMenu ? "var(--red)" : "" }}
     >
-      <div className={`box ${styles.header_inner}`}>
+      <div className={`header_box ${styles.header_inner}`}>
         <button className={styles.hamburger} onClick={() => setIsMenu(!isMenu)}>
           <span className={isMenu ? styles.rotate45 : ""}></span>
           <span className={isMenu ? styles.hide : ""}></span>

@@ -184,6 +184,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 40px;
   margin-top: 40px;
 }
 
@@ -196,6 +197,8 @@
 .info_div_1 p {
   max-width: 285px;
   color: var(--red);
+  font-size: 18px;
+  line-height: 27px;
 }
 
 .products_btns {
@@ -206,7 +209,7 @@
 
 /* === ABOUT === */
 .about_section {
-  height: 800px;
+  height: 1000px;
   background-image: url("../public/media/about_img.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -233,6 +236,22 @@
   line-height: 27px;
   max-width: 640px;
   margin-top: 24px !important;
+  position: relative;
+  z-index: 0;
+}
+
+.about_desc::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #ffffff7a;
+  border-radius: 5000px;
+  filter: blur(30px);
+  z-index: -1;
+  transform: scale(1.2);
 }
 
 .about_buttons {
@@ -272,7 +291,7 @@
 
 /* === BUSINESS === */
 .business_section {
-  height: 740px;
+  height: 780px;
   z-index: 0;
   position: relative;
 }
@@ -435,6 +454,7 @@
   min-height: 870px;
   display: flex;
   align-items: center;
+  background-color: var(--yellow);
 }
 
 .recipes_section::after {
@@ -442,14 +462,11 @@
   position: absolute;
   top: 0;
   left: 0;
-  max-width: 65%;
+  max-width: 43%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    90deg,
-    #ffd353 41.01%,
-    rgba(255, 211, 83, 0) 76.25%
-  );
+  background: linear-gradient(rgba(255, 211, 83, 1), rgba(255, 211, 83, 1));
+  filter: blur(30px);
   z-index: 1;
   pointer-events: none;
 }
@@ -487,6 +504,7 @@
   font-size: 16px;
   line-height: 24px;
   color: var(--red);
+  max-width: 413px;
 }
 
 .recipes_middle {
@@ -554,7 +572,8 @@
   }
   .hero_subtitle,
   .hero_buttons a,
-  .hero_buttons button {
+  .hero_buttons button,
+  .info_div_1 p {
     font-size: 16px;
     line-height: 24px;
   }
@@ -596,7 +615,7 @@
 
 @media (max-width: 880px) {
   .recipes_section {
-    min-height: 720px;
+    min-height: 800px;
   }
   .recipes_inner {
     padding-inline: 0px;
@@ -727,9 +746,18 @@
     background-color: var(--yellow);
   }
   .about_buttons {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
     gap: 16px;
+  }
+  .about_buttons button,
+  .about_buttons a {
+    min-width: 125px;
+  }
+  .about_desc {
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .about_desc::after {
+    display: none;
   }
 }
 
@@ -783,6 +811,12 @@
     line-height: 24px;
     margin-top: 60px !important;
   }
+  .hero_buttons a,
+  .hero_buttons button {
+    padding: 6px 12px;
+    font-size: 16px;
+    line-height: 21px;
+  }
 }
 
 @media (max-width: 380px) {
@@ -811,6 +845,7 @@
   .news_section_bottom,
   .about_buttons,
   .business_btns {
+    display: grid;
     grid-template-columns: 1fr;
   }
 }

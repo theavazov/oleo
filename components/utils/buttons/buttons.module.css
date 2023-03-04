@@ -124,6 +124,13 @@
   }
 }
 
+@media (max-width: 580px) {
+  .btn,
+  .btn .icon {
+    border-radius: 6px;
+  }
+}
+
 @media (max-width: 380px) {
   .btn {
     font-size: 16px;

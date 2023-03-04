@@ -363,6 +363,6 @@
   }
   .nav_link.active,
   .nav_link:hover {
-    color: var(--yellow);
+    color: var(--yellow) !important;
   }
 }

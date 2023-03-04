@@ -17,7 +17,7 @@ export function RecipeCard({ recipe }: { recipe: any }) {
       </div>
       <div className={styles.card_content}>
         <p className={styles.card_title}>{recipe.title}</p>
-        <p className={styles.card_subtitle}>{recipe.subtitle}</p>
+        <p className={`subtitle ${styles.card_subtitle}`}>{recipe.subtitle}</p>
         <p className={styles.tipa_link}>{play} Retseptni ko’rish</p>
       </div>
     </Link>

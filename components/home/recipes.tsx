@@ -44,14 +44,21 @@ export function MainRecipes() {
               <p>Keyingi taom</p>
             </div>
             <div className="mobile">
-              <div style={{ marginTop: "48px" }}>
+              <div className="recipes" style={{ marginTop: "48px" }}>
                 <Swiper
-                  spaceBetween={30}
+                  modules={[Autoplay, Navigation]}
                   slidesPerView={"auto"}
+                  spaceBetween={12}
+                  centeredSlides={true}
+                  loop={true}
                   breakpoints={{
                     0: { slidesPerView: 1 },
                     380: { slidesPerView: 2 },
-                    580: { slidesPerView: 3 },
+                    580: {
+                      slidesPerView: 3,
+                      centeredSlides: false,
+                      spaceBetween: 30,
+                    },
                     1200: { slidesPerView: 4 },
                     1800: { slidesPerView: 5 },
                   }}
