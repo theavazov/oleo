@@ -451,6 +451,7 @@
     rgba(255, 211, 83, 0) 76.25%
   );
   z-index: 1;
+  pointer-events: none;
 }
 
 .recipes_content {
