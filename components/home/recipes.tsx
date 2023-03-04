@@ -2,7 +2,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { play } from "../../public/icons";
+import { arrowRight, chevron, play } from "../../public/icons";
 import { getRecipes } from "../../server/getRecipes";
 import styles from "../../styles/home.module.css";
 import { RecipeCard } from "../universal/recipe_card/recipe_card";
@@ -15,7 +15,9 @@ export function MainRecipes() {
   const { locale } = useRouter();
   const [recipes, setRecipes] = useState<any>([]);
 
+  const prevBtn = useRef<HTMLButtonElement | null>(null);
   const nextBtn = useRef<HTMLButtonElement | null>(null);
+  const mobileNext = useRef<HTMLButtonElement | null>(null);
 
   useEffect(() => {
     getRecipes(locale)
@@ -62,6 +64,14 @@ export function MainRecipes() {
                     1200: { slidesPerView: 4 },
                     1800: { slidesPerView: 5 },
                   }}
+                  navigation={{
+                    prevEl: prevBtn.current,
+                    nextEl: mobileNext.current,
+                  }}
+                  onBeforeInit={(swiper: any) => {
+                    swiper.params.navigation.prevEl = prevBtn.current;
+                    swiper.params.navigation.nextEl = mobileNext.current;
+                  }}
                 >
                   {recipes.map((recipe: any, i: number) => {
                     return (
@@ -74,6 +84,12 @@ export function MainRecipes() {
               </div>
             </div>
             <div className={styles.mobile_motto}>
+              <button ref={prevBtn} className={styles.btn}>
+                {arrowRight}
+              </button>
+              <button ref={mobileNext} className={styles.btnlast}>
+                {arrowRight}
+              </button>
               <Image src={motto} alt="motto" className={styles.recipes_motto} />
             </div>
           </div>

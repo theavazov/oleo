@@ -23,6 +23,12 @@ export function MainAbout() {
         </div>
       </div>
       <div className={`box ${styles.about_inner}`}>
+        <div className="mobile">
+          <div className={styles.mobile_div}>
+            <Image src={logo} alt={"logo"} />
+            <p>OOO “OLEO BARAKA”</p>
+          </div>
+        </div>
         <h3 className="section_title desktop">Biz haqimizda</h3>
         <p className={styles.about_desc}>
           “BARAKA FOOD” MChJ 2012-yilda tashkil etilgan bo‘lib, OLEO savdo

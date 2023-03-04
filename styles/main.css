@@ -269,6 +269,10 @@ main {
 }
 
 /* = */
+.recipes .swiper-slide {
+  transition: 0.3s;
+}
+
 .recipes .swiper-slide .subtitle {
   display: none;
 }
@@ -332,5 +336,9 @@ main {
 @media (max-width: 380px) {
   .grid_container {
     grid-template-columns: 1fr;
+  }
+  .recipes .swiper-slide-active .subtitle,
+  .recipes .swiper-slide .subtitle {
+    display: block;
   }
 }

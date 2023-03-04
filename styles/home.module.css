@@ -261,6 +261,27 @@
   gap: 35px;
 }
 
+.mobile_div {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+}
+
+.mobile_div img {
+  display: inline-block;
+  width: 57px;
+  height: 50px;
+  object-fit: contain;
+}
+
+.mobile_div p {
+  font-size: 20px;
+  line-height: 18px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--red);
+}
+
 .about_link {
   display: flex;
   align-items: center;
@@ -556,6 +577,58 @@
   width: 100%;
 }
 
+/* = */
+.mobile_bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 24px;
+  padding-inline: 16px;
+}
+
+.mobile_bottom_top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.mobile_gap {
+  gap: 10px;
+}
+
+.mobile_top_btn {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.mobile_top_btn a:first-child {
+  min-width: 175px;
+}
+
+.mobile_download {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  background-color: var(--yellow);
+  border-radius: 6px;
+}
+
+.mobile_download svg {
+  width: 24px;
+  height: 24px;
+  color: var(--red);
+}
+
+.mobile_bottom > p {
+  font-size: 14px;
+  line-height: 21px;
+  color: var(--red);
+  max-width: 345px;
+}
+
 @media (max-width: 1800px) {
   .about_section {
     height: 600px;
@@ -629,6 +702,28 @@
   .mobile_motto {
     display: grid;
     place-items: center;
+    position: relative;
+  }
+  .mobile_motto button {
+    background-color: unset;
+    display: grid;
+    place-items: center;
+  }
+  .mobile_motto button svg {
+    width: 32px;
+    height: 32px;
+    color: var(--red);
+  }
+  .mobile_motto .btn:first-child {
+    position: absolute;
+    top: 20%;
+    left: 16px;
+    transform: rotate(180deg);
+  }
+  .mobile_motto .btnlast {
+    position: absolute;
+    top: 20%;
+    right: 16px;
   }
   .recipes_content {
     max-width: 100%;
@@ -820,6 +915,9 @@
 }
 
 @media (max-width: 380px) {
+  .mobile_motto button {
+    display: none;
+  }
   .hero .mask {
     max-height: 100%;
   }
