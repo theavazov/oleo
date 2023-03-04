@@ -873,8 +873,11 @@
     padding-top: 0px;
     transform: translateY(-60px);
   }
-  .products_section .bottom_section {
+  .bottom_section {
     padding-bottom: 48px;
+  }
+  .products_section {
+    padding-bottom: 32px;
   }
   .business_section {
     min-height: 800px;
@@ -915,6 +918,16 @@
 }
 
 @media (max-width: 380px) {
+  .mobile_gap {
+    display: none;
+  }
+  .mobile_top_btn a:first-child {
+    min-width: 200px;
+  }
+  .mobile_download {
+    height: 54px;
+    width: 54px;
+  }
   .mobile_motto button {
     display: none;
   }

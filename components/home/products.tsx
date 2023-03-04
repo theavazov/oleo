@@ -26,16 +26,20 @@ export function MainProducts() {
           slidesPerView="auto"
           breakpoints={{
             0: {
+              slidesPerView: 1,
+            },
+            380: {
               slidesPerView: 2.2,
             },
             580: {
-              spaceBetween: 30,
+              spaceBetween: 16,
             },
             880: {
               slidesPerView: 3,
             },
             1200: {
               slidesPerView: 4,
+              spaceBetween: 30,
             },
           }}
           speed={1600}
