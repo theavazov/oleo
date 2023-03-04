@@ -72,35 +72,35 @@ export function MainRecipes() {
           </div>
         </div>
       </div>
-      <div className="desktop">
-        <div className={`bigbox`}>
-          <Swiper
-            modules={[Navigation, Autoplay]}
-            spaceBetween={30}
-            slidesPerView="auto"
-            breakpoints={{
-              0: { slidesPerView: 2 },
-              580: { slidesPerView: 3 },
-              1200: { slidesPerView: 4 },
-              1800: { slidesPerView: 5 },
-            }}
-            speed={1600}
-            autoplay={{ delay: 2000, disableOnInteraction: true }}
-            navigation={{
-              nextEl: nextBtn.current,
-            }}
-            onBeforeInit={(swiper: any) => {
-              swiper.params.navigation.nextEl = nextBtn.current;
-            }}
-          >
-            {recipes.map((recipe: any, i: number) => {
-              return (
-                <SwiperSlide key={i}>
-                  <RecipeCard recipe={recipe} />
-                </SwiperSlide>
-              );
-            })}
-          </Swiper>
+      <div style={{ maxWidth: "100%", width: "100%" }} className="desktop">
+        <div className={`bigbox ${styles.recipes_wrapper}`}>
+          <div className={styles.recipes_swiper}>
+            <Swiper
+              modules={[Navigation, Autoplay]}
+              spaceBetween={30}
+              slidesPerView="auto"
+              breakpoints={{
+                0: { slidesPerView: 2 },
+                1800: { slidesPerView: 3.5 },
+              }}
+              speed={1600}
+              autoplay={{ delay: 2000, disableOnInteraction: true }}
+              navigation={{
+                nextEl: nextBtn.current,
+              }}
+              onBeforeInit={(swiper: any) => {
+                swiper.params.navigation.nextEl = nextBtn.current;
+              }}
+            >
+              {recipes.map((recipe: any, i: number) => {
+                return (
+                  <SwiperSlide key={i}>
+                    <RecipeCard recipe={recipe} />
+                  </SwiperSlide>
+                );
+              })}
+            </Swiper>
+          </div>
         </div>
       </div>
     </article>

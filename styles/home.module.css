@@ -528,6 +528,16 @@
   margin-top: 60px;
 }
 
+.recipes_wrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.recipes_swiper {
+  max-width: 60%;
+  width: 100%;
+}
+
 @media (max-width: 1800px) {
   .about_section {
     height: 600px;

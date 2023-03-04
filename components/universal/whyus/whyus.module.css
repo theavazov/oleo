@@ -237,12 +237,15 @@
 }
 
 @media (max-width: 580px) {
-  .stats_div {
+  .stats_div,
+  .stats_white {
     min-height: 180px;
+    padding: 8px;
+    gap: 20px;
   }
   .container .stats_div {
-    min-height: 260px;
-    padding: 12px;
+    min-height: 180px;
+    padding: 8px;
     border-radius: 10px;
   }
 }
