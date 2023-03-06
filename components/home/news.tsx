@@ -10,7 +10,7 @@ import "swiper/css/navigation";
 import { Autoplay, Navigation } from "swiper";
 
 export function MainNewsSection() {
-  const { news } = useContext(ProductsContext);
+  const { news, lastUpdate } = useContext(ProductsContext);
 
   const prevBtn = useRef<HTMLButtonElement | null>(null);
   const nextBtn = useRef<HTMLButtonElement | null>(null);
@@ -71,9 +71,12 @@ export function MainNewsSection() {
         </div>
       </div>
       <div className={`box ${styles.news_section_bottom}`}>
-        <Button variant="primary" path="/news" icon={arrowRight}>
-          Barcha yangiliklar
-        </Button>
+        <div className={styles.yetim_div}>
+          <Button variant="primary" path="/news" icon={arrowRight}>
+            Barcha yangiliklar
+          </Button>
+          <p>{lastUpdate} da yangilandi ohirgi marta</p>
+        </div>
         <div className="desktop">
           <div className="swiper_buttons">
             <button

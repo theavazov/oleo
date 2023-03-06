@@ -123,8 +123,9 @@
   .card {
     padding: 8px;
     border-radius: 10px;
-    min-height: 215px;
+    min-height: 225px;
     gap: 20px;
+    padding-top: 20px;
   }
   .card_top img {
     height: 80px;
@@ -132,6 +133,7 @@
   .readmore {
     background-color: var(--white);
     border-radius: 8px;
+    padding-block: 9px;
   }
   .card_top p {
     display: none;
@@ -141,6 +143,7 @@
   }
   .card_title {
     font-size: 14px;
+    line-height: 16px;
   }
 }
 

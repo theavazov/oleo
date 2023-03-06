@@ -22,7 +22,6 @@ export function MainRecipes() {
   useEffect(() => {
     getRecipes(locale)
       .then((res) => {
-        console.log(res.results);
         setRecipes(res.results);
       })
       .catch((e) => console.log(e));
@@ -72,6 +71,7 @@ export function MainRecipes() {
                     swiper.params.navigation.prevEl = prevBtn.current;
                     swiper.params.navigation.nextEl = mobileNext.current;
                   }}
+                  speed={1600}
                 >
                   {recipes.map((recipe: any, i: number) => {
                     return (

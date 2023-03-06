@@ -629,6 +629,20 @@
   max-width: 345px;
 }
 
+.yetim_div {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+}
+
+.yetim_div p {
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: -0.03em;
+  color: var(--red);
+  max-width: 280px;
+}
+
 @media (max-width: 1800px) {
   .about_section {
     height: 600px;
@@ -687,6 +701,18 @@
 }
 
 @media (max-width: 880px) {
+  .yetim_div {
+    grid-column: span 2 / span 2;
+    max-width: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .yetim_div p {
+    font-size: 14px;
+    line-height: 20px;
+  }
   .recipes_section {
     min-height: 800px;
   }
@@ -955,7 +981,8 @@
   .products_btns,
   .news_section_bottom,
   .about_buttons,
-  .business_btns {
+  .business_btns,
+  .yetim_div {
     display: grid;
     grid-template-columns: 1fr;
   }

@@ -9,6 +9,7 @@ export default function ProductsContextProvider({ children }) {
   const { locale } = useRouter();
   const [products, setProducts] = useState([]);
   const [news, setNews] = useState([]);
+  const [lastUpdate, setLastUpdate] = useState("");
 
   useEffect(() => {
     getProducts(locale)
@@ -19,13 +20,14 @@ export default function ProductsContextProvider({ children }) {
 
     getAllNews(locale)
       .then((res) => {
+        setLastUpdate(res.results[0].created_date);
         setNews(res.results);
       })
       .catch((e) => console.log(e));
   }, [locale]);
 
   return (
-    <ProductsContext.Provider value={{ products, news }}>
+    <ProductsContext.Provider value={{ products, news, lastUpdate }}>
       {children}
     </ProductsContext.Provider>
   );
