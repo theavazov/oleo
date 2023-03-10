@@ -10,6 +10,7 @@ import ru from "../../../public/media/rus.png";
 import gb from "../../../public/media/gb.png";
 import { useContext } from "react";
 import { SiteInfoContext } from "../../../contexts/siteinfo";
+import { TranslationsContext } from "../../../contexts/translations";
 
 type Props = {
   isLangs: boolean;
@@ -21,11 +22,12 @@ type Props = {
 export function Header({ isLangs, setIsLangs, isMenu, setIsMenu }: Props) {
   const { pathname, locale, locales, asPath } = useRouter();
   const { numbers } = useContext(SiteInfoContext);
+  const { t } = useContext(TranslationsContext);
 
   const navigation = [
     {
       id: 1,
-      title: "Asosiy",
+      title: t["main.main"],
       path: "/",
       isActive: pathname === "/" ? true : false,
     },

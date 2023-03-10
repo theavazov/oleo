@@ -48,10 +48,6 @@ export function MainProducts() {
             prevEl: prevBtn.current,
             nextEl: nextBtn.current,
           }}
-          onBeforeInit={(swiper: any) => {
-            swiper.params.navigation.prevEl = prevBtn.current;
-            swiper.params.navigation.nextEl = nextBtn.current;
-          }}
         >
           {products
             ? products.map((product: any, i: number) => {

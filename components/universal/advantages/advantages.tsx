@@ -1,4 +1,5 @@
-import Image from "next/image";
+import { useContext } from "react";
+import { TranslationsContext } from "../../../contexts/translations";
 import { adv } from "../../../public/icons";
 import styles from "./advantages.module.css";
 
@@ -8,30 +9,28 @@ type Props = {
 };
 
 export function Advantages({ className, title }: Props) {
+  const { t } = useContext(TranslationsContext);
+
   const advantages = [
     {
       id: 1,
-      title: "Sifatli mahsulotlardan",
-      description:
-        "Mamlakatimiz agrosanoat kompleksining barqaror va jadal rivojlanayotgan",
+      title: t["advantages.title1"],
+      description: t["advantages.desc1"],
     },
     {
       id: 2,
-      title: "Sifatli mahsulotlardan",
-      description:
-        "Mamlakatimiz agrosanoat kompleksining barqaror va jadal rivojlanayotgan",
+      title: t["advantages.title2"],
+      description: t["advantages.desc2"],
     },
     {
       id: 3,
-      title: "Sifatli mahsulotlardan",
-      description:
-        "Mamlakatimiz agrosanoat kompleksining barqaror va jadal rivojlanayotgan",
+      title: t["advantages.title3"],
+      description: t["advantages.desc3"],
     },
     {
       id: 4,
-      title: "Sifatli mahsulotlardan",
-      description:
-        "Mamlakatimiz agrosanoat kompleksining barqaror va jadal rivojlanayotgan",
+      title: t["advantages.title4"],
+      description: t["advantages.desc4"],
     },
   ];
 
