@@ -19,7 +19,7 @@
 
 .header.extra {
   background-color: var(--red);
-  color: var(--white);
+  color: var(--yellow);
 }
 
 .header.extra a:hover {
