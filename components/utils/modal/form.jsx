@@ -3,11 +3,13 @@ import { useContext, useState } from "react";
 import { IMaskInput } from "react-imask";
 import { ModalContext } from "../../../contexts/modal";
 import { SiteInfoContext } from "../../../contexts/siteinfo";
+import { TranslationsContext } from "../../../contexts/translations";
 import { Toast } from "../../universal/toast/toast";
 import styles from "./modal.module.css";
 
 export function ModalForm() {
   const { siteInfo } = useContext(SiteInfoContext);
+  const { t } = useContext(TranslationsContext);
   const { productContent, setIsModal } = useContext(ModalContext);
   const [isSuccess, setIsSuccess] = useState(false);
   const [name, setName] = useState("");
@@ -50,24 +52,24 @@ export function ModalForm() {
       <form className={styles.form} onSubmit={handleRequest}>
         <div className={styles.inputs_container}>
           <div className={styles.input_div}>
-            <label htmlFor="name">Ваши ФИО</label>
+            <label htmlFor="name">{t["form.name"]}</label>
             <input
               type="text"
               id="name"
-              placeholder="Ваши ФИО"
+              placeholder={t["form.name"]}
               required
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
           </div>
           <div className={styles.input_div}>
-            <label htmlFor="name">Ваш телефон</label>
+            <label htmlFor="name">{t["form.phone"]}</label>
             <div className={styles.withSpan}>
               <span>+998</span>
               <IMaskInput
                 mask={"(00) 000 00 00"}
                 id="name"
-                placeholder="Введите телефон"
+                placeholder={t["form.phone"]}
                 required
                 value={number}
                 onChange={(e) => setNumber(e.target.value)}
@@ -80,9 +82,9 @@ export function ModalForm() {
           </div>
         </div>
         <div className={styles.post_buttons}>
-          <button type="submit">Отправить</button>
+          <button type="submit">{t["form.send_mini"]}</button>
           <a href={siteInfo.telegram} target={"_blank"} rel={"noreferrer"}>
-            Написать в telegram
+            {t["form.tg"]}
           </a>
         </div>
       </form>

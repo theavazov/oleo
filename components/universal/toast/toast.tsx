@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import { TranslationsContext } from "../../../contexts/translations";
 import { galochka } from "../../../public/icons";
 import styles from "./toast.module.css";
 
@@ -7,6 +9,8 @@ type Props = {
 };
 
 export function Toast({ toastCase, isSuccess }: Props) {
+  const { t } = useContext(TranslationsContext);
+
   switch (toastCase) {
     case "copy":
       return (
@@ -17,7 +21,7 @@ export function Toast({ toastCase, isSuccess }: Props) {
               : styles.toast
           }
         >
-          {galochka} Copied to clipboard!
+          {galochka} {t["main.copied"]}
         </p>
       );
     default:
@@ -29,7 +33,7 @@ export function Toast({ toastCase, isSuccess }: Props) {
               : styles.toast
           }
         >
-          {galochka} Sent successfully!
+          {galochka} {t["main.sent"]}
         </p>
       );
   }

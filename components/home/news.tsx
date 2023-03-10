@@ -8,9 +8,11 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Autoplay, Navigation } from "swiper";
+import { TranslationsContext } from "../../contexts/translations";
 
 export function MainNewsSection() {
   const { news, lastUpdate } = useContext(ProductsContext);
+  const { t } = useContext(TranslationsContext);
 
   const prevBtn = useRef<HTMLButtonElement | null>(null);
   const nextBtn = useRef<HTMLButtonElement | null>(null);
@@ -18,10 +20,8 @@ export function MainNewsSection() {
   return (
     <article className={`section news ${styles.news_section}`}>
       <div className={`box ${styles.news_section_texts}`}>
-        <h3 className="section_title">Yangiliklar va voqea hodisalar</h3>
-        <p>
-          Siz bu yerda sohadagi songgi yangiliklar bilan tanishishingiz mumkin
-        </p>
+        <h3 className="section_title">{t["main.news_title"]}</h3>
+        <p>{t["main.news_desc"]}</p>
       </div>
       <div className={`bigbox ${styles.news_section_slides_container}`}>
         <div className="desktop">
@@ -73,9 +73,11 @@ export function MainNewsSection() {
       <div className={`box ${styles.news_section_bottom}`}>
         <div className={styles.yetim_div}>
           <Button variant="primary" path="/news" icon={arrowRight}>
-            Barcha yangiliklar
+            {t["main.all_news"]}
           </Button>
-          <p>{lastUpdate} da yangilandi ohirgi marta</p>
+          <p>
+            {lastUpdate} {t["main.last_update"]}
+          </p>
         </div>
         <div className="desktop">
           <div className="swiper_buttons">

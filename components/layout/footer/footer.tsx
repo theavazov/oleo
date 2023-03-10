@@ -6,10 +6,12 @@ import { useRouter } from "next/router";
 import { facebook, instagram, telegram } from "../../../public/icons";
 import { useContext } from "react";
 import { SiteInfoContext } from "../../../contexts/siteinfo";
+import { TranslationsContext } from "../../../contexts/translations";
 
 export function Footer() {
   const { pathname } = useRouter();
   const { siteInfo, numbers } = useContext(SiteInfoContext);
+  const { t } = useContext(TranslationsContext);
 
   const socialmedia = [
     {
@@ -49,13 +51,10 @@ export function Footer() {
                   quality={100}
                 />
               </Link>
-              <p>
-                ООО «BARAKA FOOD» - компания-производитель масложировой
-                продукции, одна из крупнейших в Узбекистане
-              </p>
+              <p>{t["main.mchj"]}</p>
             </div>
             <div className={styles.left_div}>
-              <p>Bizning ijtimoiy tarmoqlarimiz:</p>
+              <p>{t["main.our_sm"]}:</p>
               <nav className={styles.footer_nav}>
                 <div>
                   {socialmedia.map((sm) => {
@@ -80,26 +79,37 @@ export function Footer() {
           </div>
           <div className={styles.inner_right}>
             <div className={styles.inner_nav_container}>
-              <p>Oleo kompaniyasi</p>
+              <p>{t["main.company"]}</p>
               <nav className={styles.inner_nav}>
-                <Link href={"/"}>Asosiy sahifa</Link>
-                <Link href={"/about"}>Biz haqimizda</Link>
-                <Link href={"/products"}>Mahsulotlarimiz</Link>
-                <Link href={"/news"}>Yangiliklar</Link>
-                <Link href={"/business"}>Hamkorlik</Link>
+                <Link href={"/"}>{t["main.main"]}</Link>
+                <Link href={"/about"}>{t["main.about"]}</Link>
+                <Link href={"/products"}>{t["main.products"]}</Link>
+                <Link href={"/news"}>{t["main.news"]}</Link>
+                <Link href={"/business"}>{t["main.business"]}</Link>
               </nav>
             </div>
             <div className={styles.inner_nav_container}>
-              <p>Aloqa</p>
+              <p>{t["main.contact"]}</p>
               <nav className={styles.inner_nav}>
                 {numbers.map((num: string) => {
                   return (
-                    <a key={num} href={`tel: ${num}`}>
+                    <a
+                      key={num}
+                      href={`tel: ${num}`}
+                      target={"_blank"}
+                      rel="noreferrer"
+                    >
                       {num}
                     </a>
                   );
                 })}
-                <a href={`mailto: ${siteInfo.email}`}>{siteInfo.email}</a>
+                <a
+                  href={`mailto: ${siteInfo.email}`}
+                  target={"_blank"}
+                  rel="noreferrer"
+                >
+                  {siteInfo.email}
+                </a>
                 <p>{siteInfo.adres}</p>
               </nav>
             </div>
@@ -113,17 +123,16 @@ export function Footer() {
                 quality={100}
               />
             </Link>
-            <p>
-              ООО «BARAKA FOOD» - компания-производитель масложировой продукции,
-              одна из крупнейших в Узбекистане
-            </p>
+            <p>{t["main.mchj"]}</p>
           </div>
         </div>
       </footer>
       <div className={styles.footer_bottom}>
         <div className={`box ${styles.footer_bottom_inner}`}>
-          <p>Copyright © PERO | Designed by abba marketing</p>
-          <p>{new Date().getFullYear()} - Powered by ABBA marketing</p>
+          <p>Copyright &copy; {t["main.ft_bottom2"]}</p>
+          <p>
+            {new Date().getFullYear()} - {t["main.ft_bottom2"]}
+          </p>
         </div>
       </div>
     </>

@@ -5,9 +5,11 @@ import styles from "../../styles/home.module.css";
 import { Button } from "../utils/buttons/buttons";
 import { Shell } from "../utils/shell/shell";
 import myVideo from "../../public/media/oleo.mp4";
+import { TranslationsContext } from "../../contexts/translations";
 
 export function MainBusiness() {
   const { setVariant, setIsModal } = useContext(ModalContext);
+  const { t } = useContext(TranslationsContext);
 
   const customFunction = () => {
     setVariant("business");
@@ -19,25 +21,22 @@ export function MainBusiness() {
       <div className={`box ${styles.business_inner}`}>
         <Shell background="var(--yellow)" />
         <div className={styles.business_content_container}>
-          <p>
-            Мы приглашаем к сотрудничеству розничные сети, оптовые компании, и
-            производителей:
-          </p>
+          <p>{t["main.call_to_business"]}</p>
           <div className={styles.business_advantages}>
-            <p>Крупные поставщики HoReCa</p>
-            <p>Предприятия общественного питания</p>
-            <p>Хлебокомбинаты</p>
-            <p>Детские сады и больницы</p>
-            <p>Кондитерские предприятия</p>
-            <p>Социальные учреждения</p>
+            <p>{t["main.business1"]}</p>
+            <p>{t["main.business2"]}</p>
+            <p>{t["main.business3"]}</p>
+            <p>{t["main.business4"]}</p>
+            <p>{t["main.business5"]}</p>
+            <p>{t["main.business6"]}</p>
           </div>
         </div>
         <div className={styles.business_btns}>
           <Button variant="primary" icon={buy} customFunction={customFunction}>
-            Sotib olish
+            {t["main.buy"]}
           </Button>
           <Button variant="secondary" icon={arrowRight} path={"/business"}>
-            Batafsil tanishish
+            {t["main.view_all"]}
           </Button>
         </div>
       </div>

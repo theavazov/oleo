@@ -18,11 +18,13 @@ import { arrowRight, buy, chevron, download } from "../../public/icons";
 import Image from "next/image";
 import { ModalContext } from "../../contexts/modal";
 import noimage from "../../public/media/logo.png";
+import { TranslationsContext } from "../../contexts/translations";
 
 export default function ProductInnerPage() {
   const router = useRouter();
   const { slug } = router.query;
 
+  const { t } = useContext(TranslationsContext);
   const { siteInfo } = useContext(SiteInfoContext);
   const { products } = useContext(ProductsContext);
   const { setVariant, setIsModal, setProductContent } =
@@ -60,7 +62,7 @@ export default function ProductInnerPage() {
         <Location
           location={product?.name}
           backPath={"/products"}
-          parent={{ text: "Mahsulotlarimiz", path: "/products" }}
+          parent={{ text: t["main.products"], path: "/products" }}
         />
         <article className={styles.single_product}>
           <div className={`box ${styles.single_product_inner}`}>
@@ -91,14 +93,14 @@ export default function ProductInnerPage() {
               </div>
               <div className={styles.product_info}>
                 <div className={styles.info_container}>
-                  <p>Состав:</p>
+                  <p>{t["main.sostav"]}:</p>
                   <div
                     className={styles.info_div}
                     dangerouslySetInnerHTML={{ __html: product?.description }}
                   ></div>
                 </div>
                 <div className={styles.info_container}>
-                  <p>Срок годности:</p>
+                  <p>{t["main.expiration_date"]}:</p>
                   <div
                     className={styles.info_div}
                     dangerouslySetInnerHTML={{ __html: product?.bb_date }}
@@ -111,7 +113,7 @@ export default function ProductInnerPage() {
                   icon={buy}
                   customFunction={customFunction}
                 >
-                  Sotib olish
+                  {t["main.buy"]}
                 </Button>
               </div>
             </div>
@@ -119,7 +121,7 @@ export default function ProductInnerPage() {
         </article>
         <article className={styles.another_products_section}>
           <div className="box section_inner">
-            <h3 className="section_title">O`xshash mahsulotlar</h3>
+            <h3 className="section_title">{t["main.related_products"]}</h3>
           </div>
           <div className={`bigbox ${styles.another_products_container}`}>
             <div className="desktop">
@@ -181,7 +183,7 @@ export default function ProductInnerPage() {
                     icon={arrowRight}
                     path={"/products"}
                   >
-                    Katalogni ko’rish
+                    {t["main.view_catalogue"]}
                   </Button>
                   <Button
                     variant="third"
@@ -189,10 +191,10 @@ export default function ProductInnerPage() {
                     isDownload={true}
                     path={siteInfo.cotalog}
                   >
-                    Katalogni Yuklab olish
+                    {t["main.dowload"]}
                   </Button>
                 </div>
-                <p>Katalogimizda barcha tovarlarimizni ko‘rishingiz mumkin</p>
+                <p>{t["main.uzun_text"]}</p>
               </div>
               <div className="desktop">
                 <div className="swiper_buttons">

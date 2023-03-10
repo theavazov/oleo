@@ -33,25 +33,25 @@ export function Header({ isLangs, setIsLangs, isMenu, setIsMenu }: Props) {
     },
     {
       id: 2,
-      title: "Biz haqimizda",
+      title: t["main.about"],
       path: "/about",
       isActive: pathname === "/about" ? true : false,
     },
     {
       id: 3,
-      title: "Mahsulotlarimiz",
+      title: t["main.products"],
       path: "/products",
       isActive: pathname.includes("/products") ? true : false,
     },
     {
       id: 4,
-      title: "Yangiliklar",
+      title: t["main.news"],
       path: "/news",
       isActive: pathname.includes("/news") ? true : false,
     },
     {
       id: 5,
-      title: "Hamkorlik",
+      title: t["main.business"],
       path: "/business",
       isActive: pathname === "/business" ? true : false,
     },
@@ -185,6 +185,7 @@ const MobileMenu = ({
   setIsMenu: Function;
 }) => {
   const { locale, locales, asPath } = useRouter();
+  const { t } = useContext(TranslationsContext);
 
   return (
     <div className={styles.menu}>
@@ -207,7 +208,7 @@ const MobileMenu = ({
           })}
         </nav>
         <div className={styles.menu_bottom}>
-          <p>Tilni tanlang:</p>
+          <p>{t["main.select_lang"]}:</p>
           <nav>
             {locales?.map((sl) => {
               return (

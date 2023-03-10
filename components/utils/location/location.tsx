@@ -21,12 +21,12 @@ export function Location({ location, backPath, parent }: Props) {
       <div
         className={
           parent
-            ? `box ${styles.location_inner} ${styles.none}`
-            : `box ${styles.location_inner}`
+            ? `header_box ${styles.location_inner} ${styles.none}`
+            : `header_box ${styles.location_inner}`
         }
       >
         <Link href={`${backPath}`} className={styles.nazad}>
-          {chevron} Orqaga
+          {chevron} {t["main.back"]}
         </Link>
         <nav className={styles.location_nav}>
           <Link href={"/"} className={styles.node}>

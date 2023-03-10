@@ -11,10 +11,12 @@ import noimage from "../../public/media/logo.png";
 import mumu from "../../public/media/mumu.mp4";
 import { pause, play } from "../../public/icons";
 import { url } from "../../pages/_app";
+import { TranslationsContext } from "../../contexts/translations";
 
 export function MainHero() {
   const { locale } = useRouter();
 
+  const { t } = useContext(TranslationsContext);
   const { setVariant, setProductContent, setIsModal } =
     useContext(ModalContext);
 
@@ -57,7 +59,7 @@ export function MainHero() {
             <p className={styles.hero_subtitle}>{product.subtitle}</p>
           </div>
           <div className={styles.hero_buttons}>
-            <Link href={`/products/${product.slug}`}>Batafsil</Link>
+            <Link href={`/products/${product.slug}`}>{t["main.readmore"]}</Link>
             <button
               onClick={() => {
                 setVariant("post");
@@ -65,7 +67,7 @@ export function MainHero() {
                 setIsModal(true);
               }}
             >
-              Aloqa
+              {t["main.contact"]}
             </button>
           </div>
         </div>
@@ -74,14 +76,16 @@ export function MainHero() {
         </button>
         {isCookie ? (
           <div className={styles.cookie}>
-            <p>sayt {url} xochet otpravit vam cookies</p>
+            <p>
+              {url} {t["main.cookie_text"]}
+            </p>
             <div>
               <button
                 onClick={() => {
                   setIsCookie(false);
                 }}
               >
-                Ne prinyat
+                {t["main.descline"]}
               </button>
               <button
                 onClick={() => {
@@ -89,7 +93,7 @@ export function MainHero() {
                   setIsCookie(false);
                 }}
               >
-                Prinyat
+                {t["main.accept"]}
               </button>
             </div>
           </div>

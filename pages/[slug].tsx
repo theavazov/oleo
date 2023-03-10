@@ -12,10 +12,13 @@ import { play } from "../public/icons";
 import { ModalContext } from "../contexts/modal";
 import Image from "next/image";
 import motto from "../public/media/motto.png";
+import { TranslationsContext } from "../contexts/translations";
 
 export default function RetseptPage() {
   const router = useRouter();
   const { slug } = router.query;
+
+  const { t } = useContext(TranslationsContext);
 
   const { setVariant, setIsModal, setVideo } = useContext(ModalContext);
 
@@ -51,7 +54,7 @@ export default function RetseptPage() {
               </h3>
               <div className="desktop">
                 <div className={styles.opisaniye_div}>
-                  <p>Состав:</p>
+                  <p>{t["main.sostav"]}:</p>
                   <div
                     className={styles.opisaniye}
                     dangerouslySetInnerHTML={{ __html: recipe?.body }}
@@ -81,7 +84,7 @@ export default function RetseptPage() {
             </div>
             <div className="mobile">
               <div className={styles.opisaniye_div}>
-                <p>Состав:</p>
+                <p>{t["main.sostav"]}:</p>
                 <div
                   className={styles.opisaniye}
                   dangerouslySetInnerHTML={{ __html: recipe?.body }}

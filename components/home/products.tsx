@@ -9,8 +9,10 @@ import styles from "../../styles/home.module.css";
 import { ProductCard } from "../universal/product_card/product_card";
 import { Button } from "../utils/buttons/buttons";
 import { SiteInfoContext } from "../../contexts/siteinfo";
+import { TranslationsContext } from "../../contexts/translations";
 
 export function MainProducts() {
+  const { t } = useContext(TranslationsContext);
   const { products } = useContext(ProductsContext);
   const { siteInfo } = useContext(SiteInfoContext);
 
@@ -74,7 +76,7 @@ export function MainProducts() {
           <div className={styles.info_div_1}>
             <div className={styles.products_btns}>
               <Button variant="primary" icon={arrowRight} path={"/products"}>
-                Batafsil ko`rish
+                {t["main.view_all"]}
               </Button>
               <Button
                 variant="third"
@@ -82,12 +84,12 @@ export function MainProducts() {
                 path={siteInfo.cotalog}
                 isDownload={true}
               >
-                Katalogni Yuklab olish
+                {t["main.dowload"]}
               </Button>
             </div>
-            <p>Katalogimizda barcha tovarlarimizni ko‘rishingiz mumkin</p>
+            <p>{t["main.uzun_text"]}</p>
           </div>
-          <div className={`swiper_buttons ${styles.mobile_gap}`}>
+          <div className={`swiper_buttons`}>
             <button ref={prevBtn} aria-label="previous" className="swiper_btn">
               {chevron}
             </button>

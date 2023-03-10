@@ -8,29 +8,26 @@ import introImg from "../public/media/intro.png";
 import Image from "next/image";
 import { url } from "./_app";
 import { WhyUsSection } from "../components/universal/whyus/whyus";
+import { useContext } from "react";
+import { TranslationsContext } from "../contexts/translations";
 
 export default function Home() {
+  const { t } = useContext(TranslationsContext);
+
   return (
     <>
       <CustomHead
-        title={"Oleo | Hamkorlik"}
+        title={`Oleo | ${t["main.business"]}`}
         desc={"Biz bilan hamkorlik"}
         canonical={`${url}/about`}
       />
       <Layout>
-        <Location location={"Hamkorlikka chaqiramiz"} backPath={"/"} />
+        <Location location={t["main.lets_business"]} backPath={"/"} />
         <article className={styles.intro_section}>
           <div className={`box ${styles.intro_inner}`}>
             <div className={styles.intro_content}>
-              <h2 className={styles.intro_title}>
-                B2B hamkorligiga chaqiramiz
-              </h2>
-              <p className={styles.intro_desc}>
-                lorem Ipsum has been the industry&apos;s standard dummy text
-                ever since the 1500s, when an unknown printer took a galley of
-                type and scrambled it to make a type specimen book. It has
-                survived not only five
-              </p>
+              <h2 className={styles.intro_title}>{t["main.business_title"]}</h2>
+              <p className={styles.intro_desc}>{t["main.business_desc"]}</p>
             </div>
             <Image
               src={introImg}
@@ -42,10 +39,10 @@ export default function Home() {
         <WhyUsSection
           variant="business"
           className="section"
-          title={"Nega biz bilan ishlashingiz kerak?"}
+          title={t["whyus.title_business"]}
         />
         <Partners />
-        <Advantages className="section" title={"Bizning afzalliklarimiz"} />
+        <Advantages className="section" title={t["advantages.main_title"]} />
       </Layout>
     </>
   );

@@ -6,15 +6,18 @@ import noimage from "../../public/media/logo.png";
 import { CustomImage } from "../../components/utils/image";
 import { share } from "../../public/icons";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { getNewsBySlug } from "../../server/getNewsBySlug";
 import { url } from "../_app";
 import { AllNews } from "../../components/news";
 import { Toast } from "../../components/universal/toast/toast";
+import { TranslationsContext } from "../../contexts/translations";
 
 export default function NewsInnerPage() {
   const router = useRouter();
   const { slug } = router.query;
+
+  const { t } = useContext(TranslationsContext);
 
   const [singleOne, setSingleOne] = useState<any>({});
   const [isCopied, setIsCopied] = useState<boolean>(false);
@@ -49,7 +52,7 @@ export default function NewsInnerPage() {
         <Location
           location={singleOne?.title}
           backPath={"/news"}
-          parent={{ text: "Yangiliklarimiz", path: "/news" }}
+          parent={{ text: t["main.news"], path: "/news" }}
         />
         <article>
           <div className={`box ${styles.single_news_inner}`}>
@@ -81,7 +84,7 @@ export default function NewsInnerPage() {
           </div>
         </article>
         <article className={styles.news_section}>
-          <AllNews title={"Boshqa yangiliklar"} />
+          <AllNews title={t["main.another_news"]} />
         </article>
         <Toast isSuccess={isCopied} toastCase={"copy"} />
       </Layout>

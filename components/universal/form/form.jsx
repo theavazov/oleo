@@ -1,12 +1,14 @@
 import Image from "next/image";
 import styles from "./form.module.css";
 import logo from "../../../public/media/logo.png";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Toast } from "../toast/toast";
 import { IMaskInput } from "react-imask";
 import axios from "axios";
+import { TranslationsContext } from "../../../contexts/translations";
 
 export function MainForm() {
+  const { t } = useContext(TranslationsContext);
   const [isSuccess, setIsSuccess] = useState(false);
   const [name, setName] = useState("");
   const [number, setNumber] = useState("");
@@ -51,18 +53,15 @@ export function MainForm() {
           <Image src={logo} alt="logo" className={styles.bottom_form_logo} />
           <div className={styles.bottom_form_top_texts}>
             <h3 style={{ color: "var(--white)" }} className="section_title">
-              Taklif va savollar uchun
+              {t["form.title"]}
             </h3>
-            <p>
-              Bizning operatorilarimiz siz bilan 24 soat ichida siz bilan
-              bog’lanishadi
-            </p>
+            <p>{t["form.desc"]}</p>
           </div>
         </div>
         <form className={styles.bottom_form} onSubmit={handleRequest}>
           <input
             type="text"
-            placeholder="Ism familiyangiz"
+            placeholder={t["form.name"]}
             value={name}
             required
             onChange={(e) => setName(e.target.value)}
@@ -70,7 +69,7 @@ export function MainForm() {
           <IMaskInput
             mask={"+998 (00) 000 00 00"}
             type="text"
-            placeholder="Telefon raqamingiz"
+            placeholder={t["form.phone"]}
             value={number}
             required
             onChange={(e) => setNumber(e.target.value)}
@@ -78,11 +77,11 @@ export function MainForm() {
           <textarea
             cols="30"
             rows="6"
-            placeholder="Habaringizni yozib qoldiring..."
+            placeholder={t["form.message"]}
             value={message}
             onChange={(e) => setMessage(e.target.value)}
           ></textarea>
-          <button type="submit">Ma’lumotlarni yuborish</button>
+          <button type="submit">{t["form.send"]}</button>
         </form>
       </div>
       <Toast toastCase="post" isSuccess={isSuccess} />

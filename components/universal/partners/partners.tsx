@@ -1,11 +1,13 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { TranslationsContext } from "../../../contexts/translations";
 import { getPartners } from "../../../server/getPartners";
 import styles from "./partners.module.css";
 
 export function Partners() {
   const { locale } = useRouter();
+  const { t } = useContext(TranslationsContext);
   const [partners, setPartners] = useState<any>([]);
 
   useEffect(() => {
@@ -19,7 +21,7 @@ export function Partners() {
   return (
     <article className="section">
       <div className="box section_inner">
-        <h3 className="section_title">Bizga ishonch bildirgan kompaniyalar</h3>
+        <h3 className="section_title">{t["main.partners_title"]}</h3>
         <div className={styles.partners_container}>
           {partners.map((partner: any, i: number) => {
             return (

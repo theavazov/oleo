@@ -2,8 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "./product_card.module.css";
 import noimage from "../../../public/media/logo.png";
+import { useContext } from "react";
+import { TranslationsContext } from "../../../contexts/translations";
 
 export function ProductCard({ product }: { product: any }) {
+  const { t } = useContext(TranslationsContext);
+
   return (
     <Link href={`/products/${product.slug}`} className={styles.card}>
       <div className={styles.card_top}>
@@ -17,7 +21,7 @@ export function ProductCard({ product }: { product: any }) {
       </div>
       <div className={styles.card_bottom}>
         <p className={styles.card_title}>{product.name}</p>
-        <p className={styles.readmore}>Batafsil ko`rish</p>
+        <p className={styles.readmore}>{t["main.readmore"]}</p>
       </div>
     </Link>
   );

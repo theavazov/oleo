@@ -15,8 +15,10 @@ import { useContext } from "react";
 import { ModalContext } from "../contexts/modal";
 import { SiteInfoContext } from "../contexts/siteinfo";
 import yt from "../public/media/yt.png";
+import { TranslationsContext } from "../contexts/translations";
 
 export default function Home() {
+  const { t } = useContext(TranslationsContext);
   const { siteInfo, numbers } = useContext(SiteInfoContext);
   const { setVariant, setIsModal, setVideo } = useContext(ModalContext);
 
@@ -41,32 +43,19 @@ export default function Home() {
   return (
     <>
       <CustomHead
-        title={"Oleo | Biz haqimizda"}
+        title={`Oleo | ${t["main.about"]}`}
         desc={
           "“BARAKA FOOD” MChJ 2012-yilda tashkil etilgan bo‘lib, OLEO savdo belgisi ostida sariyog‘, sabzavot-qaymoq yormalari va margarinlar ishlab chiqarish bilan shug‘ullanadi. Mahsulotlarimizning keng assortimenti funksionallik, lazzat va teksturani yuqori ozuqaviy qiymat bilan birlashtiradi."
         }
         canonical={`${url}/about`}
       />
       <Layout>
-        <Location location={"Biz haqimizda"} backPath={"/"} />
+        <Location location={t["main.about"]} backPath={"/"} />
         <article className="mini_section">
           <div className={`box ${styles.intro_inner}`}>
             <div className={styles.intro_left}>
-              <h3 className="section_title">“OLEO” MCHJ korxonasi haqida</h3>
-              <p>
-                “BARAKA FOOD” MChJ 2012-yilda tashkil etilgan bo‘lib, OLEO savdo
-                belgisi ostida sariyog‘, sabzavot-qaymoq yormalari va
-                margarinlar ishlab chiqarish bilan shug‘ullanadi.
-                Mahsulotlarimizning keng assortimenti funksionallik, lazzat va
-                teksturani yuqori ozuqaviy qiymat bilan birlashtiradi.
-                Mahsulotlarni ishlab chiqaruvchi professionallar jamoasi xavfsiz
-                va yuqori sifatli mahsulotlarni ishlab chiqarish uchun xom ashyo
-                tanlashda juda ma‘suliyatli.“BARAKA FOOD” MChJ 2012-yilda
-                tashkil etilgan bo‘lib,“BARAKA FOOD” MChJ 2012-yilda tashkil
-                etilgan bo‘lib, OLEO savdo belgisi ostida sariyog‘,
-                sabzavot-qaymoq yormalari va margarinlar ishlab chiqarish bilan
-                shug‘ullanadi.{" "}
-              </p>
+              <h3 className="section_title">{t["main.about_title"]}</h3>
+              <p>{t["main.about_desc"]}</p>
             </div>
             <div
               className={styles.intro_right}
@@ -88,13 +77,8 @@ export default function Home() {
             </div>
             <div className={styles.middle_content}>
               <div className={styles.middle_texts}>
-                <h3 className="section_title">Bizning jamoamiz</h3>
-                <p className={styles.middle_desc}>
-                  Mamlakatimiz agrosanoat kompleksining barqaror va jadal
-                  rivojlanayotganMamlakatimiz agrosanoat kompleksining barqaror
-                  va jadal rivojlanayotganMamlakatimiz agrosanoat kompleksining
-                  barqaror
-                </p>
+                <h3 className="section_title">{t["main.our_team"]}</h3>
+                <p className={styles.middle_desc}>{t["main.our_team_desc"]}</p>
               </div>
               <nav className={styles.middle_nav}>
                 {socialmedia.map((sm) => {
@@ -120,7 +104,7 @@ export default function Home() {
         <WhyUsSection
           variant="stats"
           className="mini_section"
-          title={"Kompaniyamiz ishlab chiqarishi sonlarda"}
+          title={t["whyus.title_about"]}
         />
         <article className="mini_section">
           <div className={`box ${styles.about_bottom_inner}`}>

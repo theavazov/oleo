@@ -4,6 +4,7 @@ import { useContext, useEffect, useState } from "react";
 import { IMaskInput } from "react-imask";
 import Select from "react-select";
 import { ModalContext } from "../../../contexts/modal";
+import { TranslationsContext } from "../../../contexts/translations";
 import { buy } from "../../../public/icons";
 import { Toast } from "../../universal/toast/toast";
 import { Button } from "../buttons/buttons";
@@ -12,7 +13,7 @@ import styles from "./modal.module.css";
 export function BusinessForm() {
   const { locale } = useRouter();
   const { setIsModal } = useContext(ModalContext);
-
+  const { t } = useContext(TranslationsContext);
   const [activities, setActivities] = useState([]);
   const [selectedActivity, setSelectedActivity] = useState(-1);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -91,13 +92,13 @@ export function BusinessForm() {
         <div className={styles.inputs}>
           <input
             type="text"
-            placeholder="Ism Familiyangiz"
+            placeholder={t["form.name"]}
             required
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
           <Select
-            placeholder={"Sohangizni tanlang"}
+            placeholder={t["form.activity"]}
             onChange={handleActivity}
             options={options}
             className={styles.mySelect}
@@ -106,7 +107,7 @@ export function BusinessForm() {
           <IMaskInput
             mask={"+998 (00) 000 00 00"}
             required
-            placeholder={"Telefon raqamingiz"}
+            placeholder={t["form.phone"]}
             value={number}
             onChange={(e) => setNumber(e.target.value)}
           />
@@ -118,7 +119,7 @@ export function BusinessForm() {
           disabled={isValid ? false : true}
         >
           <Button variant="primary" icon={buy}>
-            Zayavka yuborish
+            {t["main.send_request"]}
           </Button>
         </button>
       </form>

@@ -199,6 +199,10 @@
     display: grid;
     place-items: center;
   }
+  .inner_bottom_button button,
+  .inner_bottom_button a {
+    min-width: 150px;
+  }
   .info_div p {
     font-size: 14px;
     line-height: 20px;

@@ -4,6 +4,7 @@ import styles from "./modal.module.css";
 import { ModalForm } from "./form";
 import { Shell } from "../shell/shell";
 import { BusinessForm } from "./businessform";
+import { TranslationsContext } from "../../../contexts/translations";
 
 export function Modal() {
   const { variant, setIsModal } = useContext(ModalContext);
@@ -59,9 +60,10 @@ const BusinessModal = () => {
 };
 
 const PostModal = () => {
+  const { t } = useContext(TranslationsContext);
   return (
     <div className={styles.post_container}>
-      <p>Заполните форму</p>
+      <p>{t["form.text"]}</p>
       <ModalForm />
     </div>
   );

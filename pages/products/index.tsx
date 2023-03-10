@@ -9,26 +9,30 @@ import { url } from "../_app";
 import { useContext } from "react";
 import { SiteInfoContext } from "../../contexts/siteinfo";
 import { ProductsContext } from "../../contexts/products";
+import { TranslationsContext } from "../../contexts/translations";
 
 export default function ProductsPage() {
+  const { t } = useContext(TranslationsContext);
   const { siteInfo } = useContext(SiteInfoContext);
   const { products } = useContext(ProductsContext);
 
   return (
     <>
       <CustomHead
-        title={"Oleo | Mahsulotlar"}
-        desc={"Oleoning barcha mahsulotlari"}
+        title={`Oleo | ${t["main.products"]}`}
+        desc={t["main.product_meta_desc"]}
         canonical={`${url}/products}`}
       />
       <Layout>
-        <Location location={"Mahsulotlarimiz"} backPath={"/"} />
+        <Location location={t["main.products"]} backPath={"/"} />
         <section className={styles.big_section}>
           <article>
             <div className={`box ${styles.products_page_top}`}>
               <div>
-                <h3 className="section_title">Barcha mahsulotlarimiz</h3>
-                <p>(Jami {products.length} ta tovar)</p>
+                <h3 className="section_title">{t["main.all_products"]}</h3>
+                <p>
+                  ({t["main.total"]} {products.length} {t["main.count"]})
+                </p>
               </div>
               <div className="desktop">
                 <Button
@@ -37,7 +41,7 @@ export default function ProductsPage() {
                   path={siteInfo.cotalog}
                   isDownload={true}
                 >
-                  Katalogni Yuklab olish
+                  {t["main.dowload"]}
                 </Button>
               </div>
             </div>
@@ -60,7 +64,7 @@ export default function ProductsPage() {
                   path={siteInfo.cotalog}
                   isDownload={true}
                 >
-                  Katalogni Yuklab olish
+                  {t["main.dowload"]}
                 </Button>
               </div>
             </div>

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { arrowRight, chevron, play } from "../../public/icons";
 import { getRecipes } from "../../server/getRecipes";
@@ -10,10 +10,12 @@ import motto from "../../public/media/motto.png";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Autoplay, Navigation } from "swiper";
+import { TranslationsContext } from "../../contexts/translations";
 
 export function MainRecipes() {
   const { locale } = useRouter();
   const [recipes, setRecipes] = useState<any>([]);
+  const { t } = useContext(TranslationsContext);
 
   const prevBtn = useRef<HTMLButtonElement | null>(null);
   const nextBtn = useRef<HTMLButtonElement | null>(null);
@@ -33,16 +35,12 @@ export function MainRecipes() {
         <div className={`box ${styles.recipes_inner}`}>
           <div className={styles.recipes_inner_content}>
             <div className={styles.recipes_titles}>
-              <h3 className="section_title">“Oleo” Pishiriqlar</h3>
-              <p>
-                Oleo margarin va saryog’laridan tayyorlangan psihiriqlarimiz.
-                Bizning Margarinlarimizdan tayyorlangan narsalarni retseptini
-                koring
-              </p>
+              <h3 className="section_title">{t["main.recipe_title"]}</h3>
+              <p>{t["main.recipe_desc"]}</p>
             </div>
             <div className={styles.recipes_middle}>
               <button ref={nextBtn}>{play}</button>
-              <p>Keyingi taom</p>
+              <p>{t["main.recipe_btn"]}</p>
             </div>
             <div className="mobile">
               <div className="recipes" style={{ marginTop: "48px" }}>
