@@ -11,6 +11,7 @@ type Props = {
 
 export function NewsCard({ news }: Props) {
   const { t } = useContext(TranslationsContext);
+  console.log(news);
 
   return (
     <Link href={`/news/${news.slug}`} className={styles.card}>
@@ -24,6 +25,7 @@ export function NewsCard({ news }: Props) {
       </div>
       <div className={styles.card_content}>
         <p className={styles.card_title}>{news.title}</p>
+        <p className={styles.card_subtitle}>{news.subtitle}</p>
         <p className={styles.card_btn}>{t["main.readmore"]}</p>
       </div>
     </Link>

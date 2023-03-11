@@ -32,19 +32,21 @@ export function ModalForm() {
 
   const handleRequest = (e) => {
     e.preventDefault();
-    postRequest(name, number, productContent)
-      .then((res) => {
-        if (res.status === 201) {
-          setIsSuccess(true);
-          setName("");
-          setNumber("");
-          setTimeout(() => {
-            setIsModal(false);
-            setIsSuccess(false);
-          }, 1000);
-        }
-      })
-      .catch((e) => console.log(e));
+    if (number.length >= 14) {
+      postRequest(name, number, productContent)
+        .then((res) => {
+          if (res.status === 201) {
+            setIsSuccess(true);
+            setName("");
+            setNumber("");
+            setTimeout(() => {
+              setIsModal(false);
+              setIsSuccess(false);
+            }, 1000);
+          }
+        })
+        .catch((e) => console.log(e));
+    }
   };
 
   return (
@@ -59,7 +61,9 @@ export function ModalForm() {
               placeholder={t["form.name"]}
               required
               value={name}
-              onChange={(e) => setName(e.target.value)}
+              onChange={(e) => {
+                setName(e.target.value);
+              }}
             />
           </div>
           <div className={styles.input_div}>

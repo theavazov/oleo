@@ -66,7 +66,7 @@ export default function ProductInnerPage() {
         />
         <article className={styles.single_product}>
           <div className={`box ${styles.single_product_inner}`}>
-            <div className="desktop">
+            <div className={`desktop ${styles.image_side}`}>
               <Image
                 src={product.image ? product.image : noimage}
                 alt={product?.name}
@@ -76,7 +76,7 @@ export default function ProductInnerPage() {
                 quality={100}
               />
             </div>
-            <div>
+            <div style={{ width: "100%", overflow: "hidden" }}>
               <div className={styles.product_titles}>
                 <h3 className="section_title">{product?.name}</h3>
                 <p>{product?.subtitle}</p>

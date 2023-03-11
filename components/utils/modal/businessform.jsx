@@ -68,7 +68,7 @@ export function BusinessForm() {
 
   const handleRequest = (e) => {
     e.preventDefault();
-    if (isValid) {
+    if (isValid && number.length >= 14) {
       postRequest(name, number, selectedActivity)
         .then((res) => {
           if (res.status === 201) {

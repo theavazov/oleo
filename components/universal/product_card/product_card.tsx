@@ -21,6 +21,7 @@ export function ProductCard({ product }: { product: any }) {
       </div>
       <div className={styles.card_bottom}>
         <p className={styles.card_title}>{product.name}</p>
+        <p className={styles.card_subtitle}>{product.subtitle}</p>
         <p className={styles.readmore}>{t["main.readmore"]}</p>
       </div>
     </Link>

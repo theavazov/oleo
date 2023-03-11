@@ -85,6 +85,10 @@
   gap: 80px;
 }
 
+.image_side {
+  width: 100%;
+}
+
 .j_btn {
   display: grid;
   place-items: center;
@@ -193,7 +197,7 @@
     gap: 8px;
   }
   .product_image {
-    height: 280px;
+    height: 200px;
   }
   .inner_bottom_button {
     display: grid;
