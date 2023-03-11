@@ -98,6 +98,10 @@
   gap: 24px;
 }
 
+.yetim_title {
+  padding-left: 120px;
+}
+
 .business_content p {
   font-size: 18px;
   line-height: 27px;
@@ -188,6 +192,9 @@
   }
   .business_content button {
     min-width: 220px;
+  }
+  .yetim_title {
+    padding-left: 0px;
   }
 }
 
