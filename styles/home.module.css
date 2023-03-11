@@ -3,8 +3,7 @@
   max-height: 1000px;
   height: calc(100vh - 100px);
   position: relative;
-  z-index: 0;
-  overflow: hidden;
+  z-index: 3;
 }
 
 .hero .background {
@@ -30,6 +29,7 @@
   height: 100%;
   object-fit: cover;
   z-index: -1;
+  overflow: hidden;
 }
 
 .hero_inner {
@@ -142,10 +142,10 @@
 }
 
 .cookie {
-  position: absolute;
+  position: fixed;
   bottom: 40px;
   right: 40px;
-  z-index: 2;
+  z-index: 5;
   padding: 16px;
   background-color: var(--white);
   display: flex;
@@ -219,6 +219,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   margin-bottom: 0px;
+  z-index: 0;
 }
 
 .about_inner {
