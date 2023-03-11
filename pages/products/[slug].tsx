@@ -43,7 +43,7 @@ export default function ProductInnerPage() {
         })
         .catch(() => router.push("/404"));
     }
-  }, [slug]);
+  }, [slug, router.locale]);
 
   const customFunction = () => {
     setProductContent(product);

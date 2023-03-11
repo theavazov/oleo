@@ -32,7 +32,7 @@ export default function RetseptPage() {
         })
         .catch(() => router.push("/"));
     }
-  }, [slug]);
+  }, [slug, router.locale]);
 
   return (
     <>
