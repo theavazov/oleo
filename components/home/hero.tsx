@@ -9,7 +9,7 @@ import Link from "next/link";
 import { ModalContext } from "../../contexts/modal";
 import noimage from "../../public/media/logo.png";
 import mumu from "../../public/media/mumu.mp4";
-import { pause, play } from "../../public/icons";
+import { pause, play, svgMask } from "../../public/icons";
 import { url } from "../../pages/_app";
 import { TranslationsContext } from "../../contexts/translations";
 
@@ -108,7 +108,8 @@ export function MainHero() {
       >
         <source src={mumu} type="video/mp4" />
       </video>
-      <Image src={mask} alt="background" className={styles.mask} />
+      <span className={styles.mask}>{svgMask}</span>
+      {/* <Image src={mask} alt="background" className={styles.mask} /> */}
     </section>
   );
 }
