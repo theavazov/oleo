@@ -6,6 +6,7 @@
   overflow: hidden;
   background-color: var(--red);
   background-color: 1px solid red;
+  min-height: 550px;
 }
 
 .card_img {
@@ -74,6 +75,9 @@
 }
 
 @media (max-width: 1800px) {
+  .card {
+    min-height: 490px;
+  }
   .card_img {
     height: 280px;
   }
@@ -93,9 +97,10 @@
 @media (max-width: 880px) {
   .card {
     border-radius: 10px;
+    min-height: 360px;
   }
   .card_img {
-    height: 220px;
+    height: 200px;
     border-radius: 10px;
   }
   .tipa_link {
@@ -108,8 +113,10 @@
     padding: 12px;
   }
   .card_content {
+    flex: 1 1 auto;
     gap: 16px;
     padding: 16px;
+    justify-content: space-between;
   }
   .card_title {
     font-size: 16px;
