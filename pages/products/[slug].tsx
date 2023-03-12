@@ -43,7 +43,7 @@ export default function ProductInnerPage() {
         })
         .catch(() => router.push("/404"));
     }
-  }, [slug, router.locale]);
+  }, [router]);
 
   const customFunction = () => {
     setProductContent(product);
@@ -130,13 +130,12 @@ export default function ProductInnerPage() {
                 spaceBetween={20}
                 slidesPerView="auto"
                 breakpoints={{
+                  0: { slidesPerView: 1 },
+                  580: { slidesPerView: 2 },
                   880: {
-                    slidesPerView: 2,
-                  },
-                  1200: {
                     slidesPerView: 3,
                   },
-                  1800: {
+                  1200: {
                     slidesPerView: 4,
                   },
                 }}

@@ -30,13 +30,16 @@ export function MainNewsSection() {
             spaceBetween={20}
             slidesPerView="auto"
             breakpoints={{
-              880: {
+              0: {
+                slidesPerView: 0,
+              },
+              380: {
                 slidesPerView: 2,
               },
-              1200: {
+              580: {
                 slidesPerView: 3,
               },
-              1800: {
+              1200: {
                 slidesPerView: 4,
               },
             }}

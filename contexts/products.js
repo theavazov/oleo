@@ -6,25 +6,25 @@ import { getProducts } from "../server/getProducts";
 export const ProductsContext = createContext();
 
 export default function ProductsContextProvider({ children }) {
-  const { locale } = useRouter();
+  const router = useRouter();
   const [products, setProducts] = useState([]);
   const [news, setNews] = useState([]);
   const [lastUpdate, setLastUpdate] = useState("");
 
   useEffect(() => {
-    getProducts(locale)
+    getProducts(router.locale)
       .then((res) => {
         setProducts(res.results);
       })
       .catch((e) => console.log(e));
 
-    getAllNews(locale)
+    getAllNews(router.locale)
       .then((res) => {
         setLastUpdate(res.results[0].created_date);
         setNews(res.results);
       })
       .catch((e) => console.log(e));
-  }, [locale]);
+  }, [router]);
 
   return (
     <ProductsContext.Provider value={{ products, news, lastUpdate }}>

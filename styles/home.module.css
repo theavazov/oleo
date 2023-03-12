@@ -359,6 +359,7 @@
   flex-direction: column;
   align-items: center;
   gap: 36px;
+  margin-top: 20px;
 }
 
 .business_content_container > p {
@@ -445,7 +446,7 @@
 
 .faq {
   background-color: #ee464f !important;
-  color: var(--white);
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .accordion_header {
@@ -482,6 +483,7 @@
   display: flex;
   align-items: center;
   background-color: var(--yellow);
+  overflow: hidden;
 }
 
 .recipes_section::after {
@@ -651,7 +653,7 @@
 
 @media (max-width: 1800px) {
   .about_section {
-    height: 600px;
+    height: 900px;
     margin-bottom: 0px;
   }
   .hero .mask {
@@ -935,6 +937,9 @@
   .business_btns {
     gap: 16px;
     margin-top: 24px;
+  }
+  .business_content_container {
+    margin-top: 0px;
   }
   .business_content_container > p {
     font-size: 16px;

@@ -128,12 +128,16 @@
 .inner_nav p {
   font-size: 15px;
   line-height: 20px;
-  color: var(--white);
+  color: rgba(255, 255, 255, 0.5);
   transition: 0.3s;
 }
 
 .inner_nav a:hover,
-.inner_nav p:hover,
+.inner_nav p:hover {
+  color: var(--white);
+  transition: 0.3s;
+}
+
 .ft_number:hover,
 .sm:hover {
   color: var(--yellow);

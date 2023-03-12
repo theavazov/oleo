@@ -61,6 +61,7 @@
   text-align: center;
   font-size: 16px;
   line-height: 32px;
+  font-weight: 300;
   color: #d72a33;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -97,7 +98,7 @@
 @media (max-width: 1800px) {
   .card {
     gap: 24px;
-    min-height: 440px;
+    min-height: 450px;
   }
   .card_top img {
     max-width: 320px;

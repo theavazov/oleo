@@ -246,6 +246,7 @@ main {
   line-height: 24px !important;
   padding-inline: 24px !important;
   padding-bottom: 18px !important;
+  font-weight: 300 !important;
 }
 
 .accordion-button {

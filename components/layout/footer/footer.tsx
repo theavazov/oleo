@@ -35,7 +35,9 @@ export function Footer() {
     <>
       <footer
         className={
-          pathname === "/" || pathname.includes("/products")
+          pathname === "/" ||
+          pathname.includes("/products") ||
+          pathname === "/about"
             ? styles.footer
             : `${styles.footer} ${styles.footer_with_margin}`
         }

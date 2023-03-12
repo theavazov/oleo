@@ -53,6 +53,7 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+  text-align: center;
 }
 
 .card_btn {
@@ -87,7 +88,7 @@
 
 @media (max-width: 1800px) {
   .card {
-    min-height: 400px;
+    min-height: 440px;
   }
   .card_img {
     height: 220px;

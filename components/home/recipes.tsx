@@ -104,6 +104,7 @@ export function MainRecipes() {
                 0: { slidesPerView: 2 },
                 1800: { slidesPerView: 3.5 },
               }}
+              loop={true}
               speed={1600}
               autoplay={{ delay: 2000, disableOnInteraction: true }}
               navigation={{
