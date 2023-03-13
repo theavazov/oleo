@@ -18,9 +18,11 @@
 }
 
 .card_content {
+  flex: 1 1 auto;
   padding: 24px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   gap: 24px;
 }
 

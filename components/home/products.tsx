@@ -1,5 +1,5 @@
-import { useContext, useRef } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { useContext, useRef, useState } from "react";
+import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Autoplay, Navigation } from "swiper";
@@ -16,8 +16,8 @@ export function MainProducts() {
   const { products } = useContext(ProductsContext);
   const { siteInfo } = useContext(SiteInfoContext);
 
-  const prevBtn = useRef<HTMLButtonElement | null>(null);
-  const nextBtn = useRef<HTMLButtonElement | null>(null);
+  const [prevEl, setPrevEl] = useState<HTMLElement | null>(null);
+  const [nextEl, setNextEl] = useState<HTMLElement | null>(null);
 
   return (
     <article className={styles.products_section}>
@@ -46,10 +46,7 @@ export function MainProducts() {
           }}
           speed={1600}
           autoplay={{ delay: 2000, disableOnInteraction: true }}
-          navigation={{
-            prevEl: prevBtn.current,
-            nextEl: nextBtn.current,
-          }}
+          navigation={{ prevEl, nextEl }}
         >
           {products
             ? products.map((product: any, i: number) => {
@@ -71,68 +68,76 @@ export function MainProducts() {
             : null}
         </div>
       </div> */}
-      <div className="desktop">
-        <div className={`box ${styles.products_bottom_info}`}>
-          <div className={styles.info_div_1}>
-            <div className={styles.products_btns}>
-              <Button variant="primary" icon={arrowRight} path={"/products"}>
-                {t["main.view_all"]}
-              </Button>
-              <Button
-                variant="third"
-                icon={download}
-                path={siteInfo.cotalog}
-                isDownload={true}
-              >
-                {t["main.dowload"]}
-              </Button>
-            </div>
-            <p>{t["main.uzun_text"]}</p>
+      <div className={`box ${styles.products_bottom_info}`}>
+        <div className={styles.info_div_1}>
+          <div className={styles.products_btns}>
+            <Button variant="primary" icon={arrowRight} path={"/products"}>
+              {t["main.view_all"]}
+            </Button>
+            <Button
+              variant="third"
+              icon={download}
+              path={siteInfo.cotalog}
+              isDownload={true}
+            >
+              {t["main.dowload"]}
+            </Button>
           </div>
-          <div className={`swiper_buttons`}>
-            <button ref={prevBtn} aria-label="previous" className="swiper_btn">
+          <p>{t["main.uzun_text"]}</p>
+        </div>
+        <div className={`swiper_buttons ${styles.desktop}`}>
+          <button
+            ref={(node) => setPrevEl(node)}
+            aria-label="previous"
+            className="swiper_btn"
+          >
+            {chevron}
+          </button>
+          <button
+            ref={(node) => setNextEl(node)}
+            aria-label="next"
+            className="swiper_btn"
+          >
+            {chevron}
+          </button>
+        </div>
+      </div>
+      {/* <div className={styles.mobile_bottom}>
+        <div className={styles.mobile_bottom_top}>
+          <div className={styles.mobile_top_btn}>
+            <Button variant="primary" icon={arrowRight} path={"/products"}>
+              Batafsil ko`rish
+            </Button>
+            <a
+              href={siteInfo.cotalog}
+              aria-label="download"
+              className={styles.mobile_download}
+              download
+              target={"_blank"}
+              rel="noreferrer"
+            >
+              {download}
+            </a>
+          </div>
+          <div className={`swiper_buttons ${styles.mobile_gap}`}>
+            <button
+              ref={(node) => setPrevEl(node)}
+              aria-label="previous"
+              className="swiper_btn"
+            >
               {chevron}
             </button>
-            <button ref={nextBtn} aria-label="next" className="swiper_btn">
+            <button
+              ref={(node) => setNextEl(node)}
+              aria-label="next"
+              className="swiper_btn"
+            >
               {chevron}
             </button>
           </div>
         </div>
-      </div>
-      <div className="mobile">
-        <div className={styles.mobile_bottom}>
-          <div className={styles.mobile_bottom_top}>
-            <div className={styles.mobile_top_btn}>
-              <Button variant="primary" icon={arrowRight} path={"/products"}>
-                Batafsil ko`rish
-              </Button>
-              <a
-                href={siteInfo.cotalog}
-                aria-label="download"
-                className={styles.mobile_download}
-                download
-                target={"_blank"}
-                rel="noreferrer"
-              >
-                {download}
-              </a>
-            </div>
-            <div className={`swiper_buttons ${styles.mobile_gap}`}>
-              <button
-                ref={prevBtn}
-                aria-label="previous"
-                className="swiper_btn"
-              >
-                {chevron}
-              </button>
-              <button ref={nextBtn} aria-label="next" className="swiper_btn">
-                {chevron}
-              </button>
-            </div>
-          </div>
-          <p>Katalogimizda barcha tovarlarimizni ko‘rishingiz mumkin</p>
-        </div>
-      </div>
+        <p>Katalogimizda barcha tovarlarimizni ko‘rishingiz mumkin</p>
+      </div> */}
     </article>
   );
 }

@@ -17,9 +17,9 @@ export function MainRecipes() {
   const [recipes, setRecipes] = useState<any>([]);
   const { t } = useContext(TranslationsContext);
 
-  const prevBtn = useRef<HTMLButtonElement | null>(null);
-  const nextBtn = useRef<HTMLButtonElement | null>(null);
-  const mobileNext = useRef<HTMLButtonElement | null>(null);
+  const [prevEl, setPrevEl] = useState<HTMLElement | null>(null);
+  const [nextEl, setNextEl] = useState<HTMLElement | null>(null);
+  const [nextRecipe, setNextRecipe] = useState<HTMLElement | null>(null);
 
   useEffect(() => {
     getRecipes(locale)
@@ -39,7 +39,7 @@ export function MainRecipes() {
               <p>{t["main.recipe_desc"]}</p>
             </div>
             <div className={styles.recipes_middle}>
-              <button ref={nextBtn}>{play}</button>
+              <button ref={(node) => setNextRecipe(node)}>{play}</button>
               <p>{t["main.recipe_btn"]}</p>
             </div>
             <div className="mobile">
@@ -61,15 +61,8 @@ export function MainRecipes() {
                     1200: { slidesPerView: 4 },
                     1800: { slidesPerView: 5 },
                   }}
-                  navigation={{
-                    prevEl: prevBtn.current,
-                    nextEl: mobileNext.current,
-                  }}
-                  onBeforeInit={(swiper: any) => {
-                    swiper.params.navigation.prevEl = prevBtn.current;
-                    swiper.params.navigation.nextEl = mobileNext.current;
-                  }}
                   speed={1600}
+                  navigation={{ prevEl, nextEl }}
                 >
                   {recipes.map((recipe: any, i: number) => {
                     return (
@@ -82,10 +75,13 @@ export function MainRecipes() {
               </div>
             </div>
             <div className={styles.mobile_motto}>
-              <button ref={prevBtn} className={styles.btn}>
+              <button className={styles.btn} ref={(node) => setPrevEl(node)}>
                 {arrowRight}
               </button>
-              <button ref={mobileNext} className={styles.btnlast}>
+              <button
+                className={styles.btnlast}
+                ref={(node) => setNextEl(node)}
+              >
                 {arrowRight}
               </button>
               <Image src={motto} alt="motto" className={styles.recipes_motto} />
@@ -93,38 +89,44 @@ export function MainRecipes() {
           </div>
         </div>
       </div>
-      <div style={{ maxWidth: "100%", width: "100%" }} className="desktop">
-        <div className={`bigbox ${styles.recipes_wrapper}`}>
-          <div className={styles.recipes_swiper}>
-            <Swiper
-              modules={[Navigation, Autoplay]}
-              spaceBetween={30}
-              slidesPerView="auto"
-              breakpoints={{
-                0: { slidesPerView: 2 },
-                1800: { slidesPerView: 3.5 },
-              }}
-              loop={true}
-              speed={1600}
-              autoplay={{ delay: 2000, disableOnInteraction: true }}
-              navigation={{
-                nextEl: nextBtn.current,
-              }}
-              onBeforeInit={(swiper: any) => {
-                swiper.params.navigation.nextEl = nextBtn.current;
-              }}
-            >
-              {recipes.map((recipe: any, i: number) => {
-                return (
-                  <SwiperSlide key={i}>
-                    <RecipeCard recipe={recipe} />
-                  </SwiperSlide>
-                );
-              })}
-            </Swiper>
-          </div>
-        </div>
-      </div>
+      <DesktopSwiper nextRecipe={nextRecipe} recipes={recipes} />
     </article>
   );
 }
+
+const DesktopSwiper = ({
+  nextRecipe,
+  recipes,
+}: {
+  nextRecipe: any;
+  recipes: any;
+}) => {
+  return (
+    <div style={{ maxWidth: "100%", width: "100%" }} className="desktop">
+      <div className={`bigbox ${styles.recipes_wrapper}`}>
+        <div className={styles.recipes_swiper}>
+          <Swiper
+            modules={[Navigation, Autoplay]}
+            spaceBetween={30}
+            slidesPerView="auto"
+            breakpoints={{
+              0: { slidesPerView: 2 },
+              1800: { slidesPerView: 3.5 },
+            }}
+            speed={1600}
+            autoplay={{ delay: 2000, disableOnInteraction: true }}
+            navigation={{ nextEl: nextRecipe }}
+          >
+            {recipes.map((recipe: any, i: number) => {
+              return (
+                <SwiperSlide key={i}>
+                  <RecipeCard recipe={recipe} />
+                </SwiperSlide>
+              );
+            })}
+          </Swiper>
+        </div>
+      </div>
+    </div>
+  );
+};

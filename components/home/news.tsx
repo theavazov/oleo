@@ -2,7 +2,7 @@ import { arrowRight, chevron } from "../../public/icons";
 import styles from "../../styles/home.module.css";
 import { Button } from "../utils/buttons/buttons";
 import { NewsCard } from "../universal/news_card/news_card";
-import { useContext, useRef } from "react";
+import { useContext, useRef, useState } from "react";
 import { ProductsContext } from "../../contexts/products";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -14,8 +14,8 @@ export function MainNewsSection() {
   const { news, lastUpdate } = useContext(ProductsContext);
   const { t } = useContext(TranslationsContext);
 
-  const prevBtn = useRef<HTMLButtonElement | null>(null);
-  const nextBtn = useRef<HTMLButtonElement | null>(null);
+  const [prevEl, setPrevEl] = useState<HTMLElement | null>(null);
+  const [nextEl, setNextEl] = useState<HTMLElement | null>(null);
 
   return (
     <article className={`section news ${styles.news_section}`}>
@@ -45,14 +45,7 @@ export function MainNewsSection() {
             }}
             speed={1600}
             autoplay={{ delay: 2000, disableOnInteraction: true }}
-            navigation={{
-              prevEl: prevBtn.current,
-              nextEl: nextBtn.current,
-            }}
-            onBeforeInit={(swiper: any) => {
-              swiper.params.navigation.prevEl = prevBtn.current;
-              swiper.params.navigation.nextEl = nextBtn.current;
-            }}
+            navigation={{ prevEl, nextEl }}
           >
             {news.map((news: any, i: number) => {
               return (
@@ -82,23 +75,21 @@ export function MainNewsSection() {
             {lastUpdate} {t["main.last_update"]}
           </p>
         </div>
-        <div className="desktop">
-          <div className="swiper_buttons">
-            <button
-              ref={prevBtn}
-              className="swiper_btn"
-              aria-label="Previous slide"
-            >
-              {chevron}
-            </button>
-            <button
-              ref={nextBtn}
-              className="swiper_btn"
-              aria-label="Next slide"
-            >
-              {chevron}
-            </button>
-          </div>
+        <div className={`swiper_buttons ${styles.hide}`}>
+          <button
+            ref={(node) => setPrevEl(node)}
+            className="swiper_btn"
+            aria-label="Previous slide"
+          >
+            {chevron}
+          </button>
+          <button
+            ref={(node) => setNextEl(node)}
+            className="swiper_btn"
+            aria-label="Next slide"
+          >
+            {chevron}
+          </button>
         </div>
       </div>
     </article>
