@@ -69,11 +69,9 @@ export default function NewsInnerPage() {
             </div>
             <div className={styles.single_news_content}>
               <div className={styles.single_news_img}>
-                <CustomImage
-                  source={singleOne.image ? singleOne.image : noimage}
+                <img
+                  src={singleOne.image ? singleOne.image : noimage}
                   alt="single news"
-                  width={1200}
-                  height={480}
                 />
               </div>
               <div
