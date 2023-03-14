@@ -76,9 +76,7 @@ export function MainHero() {
         </button>
         {isCookie ? (
           <div className={styles.cookie}>
-            <p>
-              {url} {t["main.cookie_text"]}
-            </p>
+            <p>{t["main.cookie_text"]}</p>
             <div>
               <button
                 onClick={() => {

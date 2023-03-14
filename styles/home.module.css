@@ -1,7 +1,7 @@
 /* === HERO === */
 .hero {
   max-height: 1000px;
-  height: calc(100vh - 100px);
+  height: calc(105vh - 100px);
   position: relative;
   z-index: 3;
 }
@@ -125,7 +125,7 @@
 .pult {
   position: absolute;
   right: 40px;
-  bottom: 40px;
+  bottom: 80px;
   width: 48px;
   height: 48px;
   z-index: 2;
