@@ -11,7 +11,6 @@ type Props = {
 
 export function NewsCard({ news }: Props) {
   const { t } = useContext(TranslationsContext);
-  console.log(news);
 
   return (
     <Link href={`/news/${news.slug}`} className={styles.card}>

@@ -19,7 +19,7 @@ export function MainRecipes() {
 
   const [prevEl, setPrevEl] = useState<HTMLElement | null>(null);
   const [nextEl, setNextEl] = useState<HTMLElement | null>(null);
-  const [nextRecipe, setNextRecipe] = useState<HTMLElement | null>(null);
+  const nextBtn = useRef<HTMLButtonElement | null>(null);
 
   useEffect(() => {
     getRecipes(locale)
@@ -39,7 +39,7 @@ export function MainRecipes() {
               <p>{t["main.recipe_desc"]}</p>
             </div>
             <div className={styles.recipes_middle}>
-              <button ref={(node) => setNextRecipe(node)}>{play}</button>
+              <button ref={nextBtn}>{play}</button>
               <p>{t["main.recipe_btn"]}</p>
             </div>
             <div className="mobile">
@@ -89,16 +89,41 @@ export function MainRecipes() {
           </div>
         </div>
       </div>
-      <DesktopSwiper nextRecipe={nextRecipe} recipes={recipes} />
+      <div style={{ maxWidth: "100%", width: "100%" }} className="desktop">
+        <div className={`bigbox ${styles.recipes_wrapper}`}>
+          <div className={styles.recipes_swiper}>
+            <Swiper
+              modules={[Navigation, Autoplay]}
+              spaceBetween={30}
+              slidesPerView="auto"
+              breakpoints={{
+                0: { slidesPerView: 2 },
+                1800: { slidesPerView: 3.5 },
+              }}
+              speed={1600}
+              autoplay={{ delay: 2000, disableOnInteraction: true }}
+              navigation={{ nextEl: nextBtn.current }}
+            >
+              {recipes.map((recipe: any, i: number) => {
+                return (
+                  <SwiperSlide key={i}>
+                    <RecipeCard recipe={recipe} />
+                  </SwiperSlide>
+                );
+              })}
+            </Swiper>
+          </div>
+        </div>
+      </div>
     </article>
   );
 }
 
 const DesktopSwiper = ({
-  nextRecipe,
+  nextBtn,
   recipes,
 }: {
-  nextRecipe: any;
+  nextBtn: any;
   recipes: any;
 }) => {
   return (
@@ -115,7 +140,7 @@ const DesktopSwiper = ({
             }}
             speed={1600}
             autoplay={{ delay: 2000, disableOnInteraction: true }}
-            navigation={{ nextEl: nextRecipe }}
+            navigation={{ nextEl: nextBtn.current }}
           >
             {recipes.map((recipe: any, i: number) => {
               return (
