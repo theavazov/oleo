@@ -1,7 +1,11 @@
 import { useContext } from "react";
 import { TranslationsContext } from "../../../contexts/translations";
-import { adv1, adv2, adv4, avd3 } from "../../../public/icons";
 import styles from "./advantages.module.css";
+import adv1 from "../../../public/media/adv1.svg";
+import adv2 from "../../../public/media/adv2.svg";
+import adv3 from "../../../public/media/adv3.svg";
+import adv4 from "../../../public/media/adv4.svg";
+import Image from "next/image";
 
 type Props = {
   className: string;
@@ -28,7 +32,7 @@ export function Advantages({ className, title }: Props) {
       id: 3,
       title: t["advantages.title3"],
       description: t["advantages.desc3"],
-      icon: avd3,
+      icon: adv3,
     },
     {
       id: 4,
@@ -46,7 +50,12 @@ export function Advantages({ className, title }: Props) {
           {advantages.map((advantage) => {
             return (
               <div key={advantage.id} className={styles.advantage}>
-                {advantage.icon}
+                <Image
+                  src={advantage.icon}
+                  alt="svg"
+                  width={115}
+                  height={130}
+                />
                 <div className={styles.advantage_texts}>
                   <p className={styles.advantage_title}>{advantage.title}</p>
                   <p className={styles.advantage_desc}>

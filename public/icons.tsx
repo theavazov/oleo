@@ -220,7 +220,7 @@ export const adv1 = (
   </svg>
 );
 
-export const adv2 = (
+export const newAdv = (
   <svg
     viewBox="0 0 124 128"
     fill="none"
