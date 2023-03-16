@@ -17,7 +17,7 @@ export function MainForm() {
   async function postRequest(name, number, message) {
     const data = {
       full_name: name,
-      nbm: `+998 ${number}`,
+      nbm: number,
       comment: message ? message : null,
     };
 

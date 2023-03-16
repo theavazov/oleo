@@ -23,7 +23,7 @@
 }
 
 .header.extra a:hover {
-  color: var(--yellow);
+  color: var(--white);
   transition: 0.3s;
 }
 
@@ -70,9 +70,9 @@
   transition: 0.3s;
 }
 
-.header.extra .nav_link.active {
-  color: var(--yellow);
-}
+/* .header.extra .nav_link.active {
+  color: var(--white);
+} */
 
 .extra_nav {
   display: flex;

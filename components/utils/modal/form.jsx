@@ -18,7 +18,7 @@ export function ModalForm() {
   async function postRequest(name, number, product) {
     const data = {
       full_name: name,
-      nbm: `+998 ${number}`,
+      nbm: number,
       product: product.id,
     };
 
