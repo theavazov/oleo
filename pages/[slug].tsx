@@ -23,6 +23,7 @@ export default function RetseptPage() {
   const { setVariant, setIsModal, setVideo } = useContext(ModalContext);
 
   const [recipe, setRecipe] = useState<any>({});
+  const [isMini, setIsMini] = useState(true);
 
   useEffect(() => {
     if (router.isReady) {
@@ -55,10 +56,26 @@ export default function RetseptPage() {
               <div className="desktop">
                 <div className={styles.opisaniye_div}>
                   <p>{t["main.sostav"]}:</p>
-                  <div
-                    className={styles.opisaniye}
-                    dangerouslySetInnerHTML={{ __html: recipe?.body }}
-                  ></div>
+                  <div className={styles.foydali_div}>
+                    <div
+                      className={
+                        isMini
+                          ? `${styles.opisaniye} ${styles.mini}`
+                          : styles.opisaniye
+                      }
+                      dangerouslySetInnerHTML={{ __html: recipe?.body }}
+                    ></div>
+                    <span
+                      className={
+                        isMini
+                          ? styles.readmore
+                          : `${styles.readmore} ${styles.hidden}`
+                      }
+                      onClick={() => setIsMini(false)}
+                    >
+                      Read more
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>

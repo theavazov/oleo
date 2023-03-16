@@ -49,14 +49,16 @@ export function MainRecipes() {
           <div className={styles.recipes_swiper}>
             <Swiper
               modules={[Autoplay, Navigation]}
+              loop={true}
+              centeredSlides={true}
+              loopedSlides={3}
               spaceBetween={30}
-              slidesPerView="auto"
+              slidesPerView={2}
               breakpoints={{
-                0: { slidesPerView: 2 },
                 1800: { slidesPerView: 3.5 },
               }}
               speed={1600}
-              autoplay={{ delay: 2000 }}
+              autoplay={{ delay: 2000, disableOnInteraction: false }}
               navigation={{ nextEl: ".custom-next-btn" }}
             >
               {recipes.map((recipe: any, i: number) => {
@@ -101,6 +103,7 @@ const MobileSwiper = ({ recipes }: { recipes: object[] }) => {
             }}
             speed={1600}
             navigation={{ prevEl, nextEl }}
+            autoplay={{ delay: 2000, disableOnInteraction: false }}
           >
             {recipes.map((recipe: any, i: number) => {
               return (

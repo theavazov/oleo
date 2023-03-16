@@ -27,9 +27,37 @@
   font-weight: 700;
 }
 
+.foydali_div {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.foydali_div .readmore {
+  color: var(--white);
+  cursor: pointer;
+}
+
+.foydali_div .readmore:hover {
+  text-decoration: underline !important;
+}
+
+.opisaniye.mini {
+  display: -webkit-box;
+  -webkit-line-clamp: 18;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .opisaniye p {
   font-size: 16px;
   line-height: 24px;
+}
+
+.readmore.hidden {
+  display: none;
 }
 
 .image_side {
@@ -42,7 +70,7 @@
 .recipe_image {
   position: relative;
   width: 100%;
-  height: 600px;
+  height: 590px;
   border-radius: 20px;
   overflow: hidden;
   z-index: -1;
@@ -109,6 +137,12 @@
     width: 24px;
     height: 24px;
     margin-left: 2px;
+  }
+  .opisaniye.mini {
+    -webkit-line-clamp: unset;
+  }
+  .readmore {
+    display: none;
   }
 }
 
