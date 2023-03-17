@@ -1,7 +1,5 @@
 import Image from "next/image";
 import styles from "../../styles/home.module.css";
-import background from "../../public/media/hero_bg.jpg";
-import mask from "../../public/media/hero_mask.png";
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { useRouter } from "next/router";
@@ -10,7 +8,6 @@ import { ModalContext } from "../../contexts/modal";
 import noimage from "../../public/media/logo.png";
 import mumu from "../../public/media/mumu.mp4";
 import { pause, play, svgMask } from "../../public/icons";
-import { url } from "../../pages/_app";
 import { TranslationsContext } from "../../contexts/translations";
 
 export function MainHero() {

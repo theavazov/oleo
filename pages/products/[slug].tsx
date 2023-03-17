@@ -140,7 +140,7 @@ export default function ProductInnerPage() {
                   },
                 }}
                 speed={1600}
-                autoplay={{ delay: 2000, disableOnInteraction: true }}
+                autoplay={{ delay: 2000, disableOnInteraction: false }}
                 navigation={{
                   prevEl: prevBtn.current,
                   nextEl: nextBtn.current,

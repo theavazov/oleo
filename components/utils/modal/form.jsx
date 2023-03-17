@@ -86,10 +86,10 @@ export function ModalForm() {
           </div>
         </div>
         <div className={styles.post_buttons}>
-          <button type="submit">{t["form.send_mini"]}</button>
           <a href={siteInfo.telegram} target={"_blank"} rel={"noreferrer"}>
             {t["form.tg"]}
           </a>
+          <button type="submit">{t["form.send_mini"]}</button>
         </div>
       </form>
       <Toast toastCase="post" isSuccess={isSuccess} />

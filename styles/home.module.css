@@ -4,6 +4,9 @@
   height: calc(105vh - 100px);
   position: relative;
   z-index: 3;
+  background-image: url("../public/media/poster.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .hero .background {
